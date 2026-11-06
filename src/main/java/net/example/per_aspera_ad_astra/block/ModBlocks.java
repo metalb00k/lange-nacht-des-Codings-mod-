@@ -78,6 +78,10 @@ public class ModBlocks {
             () -> new StairBlock(() -> EISZIEGELSTEIN.get().defaultBlockState(),
                     BlockBehaviour.Properties.copy(Blocks.BRICK_STAIRS).requiresCorrectToolForDrops()));
 
+    // Solid ice block: slippery like packed ice, does not melt
+    public static final RegistryObject<Block> EISBLOCK = registerBlock("eisblock",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.PACKED_ICE)));
+
 
     // ---- Custom blocks go here ----
     // Example (needs blockstate, model, texture and lang entry in src/main/resources/assets/per_aspera_ad_astra/):
