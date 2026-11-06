@@ -25,10 +25,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> STAR_FRAGMENT = ITEMS.register("star_fragment",
             () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CRYOORE = ITEMS.register("Cryo-Titan Erz",
-            () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> CRYOORE = ITEMS.register("Cryo-Titan Erz",
+    public static final RegistryObject<Item> CRYOORE = ITEMS.register("cryo_titan_erz",
             () -> new Item(new Item.Properties()));
 
     // ---- End of items ----
