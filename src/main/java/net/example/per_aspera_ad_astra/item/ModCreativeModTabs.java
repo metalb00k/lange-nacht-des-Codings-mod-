@@ -29,6 +29,8 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.CRYOORE.get());
                         pOutput.accept(ModItems.CRYOTITAN_INGOT.get());
                         pOutput.accept(ModItems.EISWASSER_EIMER.get());
+                        pOutput.accept(ModItems.FLAMING_HEART.get());
+                        pOutput.accept(ModItems.HEATER.get());
                         // Cryo-Titan weapons, tools & armor
                         pOutput.accept(ModItems.CRYO_TITAN_SWORD.get());
                         pOutput.accept(ModItems.CRYO_TITAN_PICKAXE.get());

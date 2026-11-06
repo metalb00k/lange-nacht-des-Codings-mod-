@@ -1,6 +1,8 @@
 package net.example.per_aspera_ad_astra.block.custom;
 
+import net.example.per_aspera_ad_astra.item.ModItems;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
@@ -28,6 +30,10 @@ public class EiswasserBlock extends LiquidBlock {
         if (level.isClientSide || !(entity instanceof LivingEntity living)) {
             return;
         }
+        // A heater keeps you warm: no freezing, no damage
+        if (hasHeater(living)) {
+            return;
+        }
 
         // Frost overlay on the screen (like powder snow). Vanilla melts it by 2 per tick, so +3 makes it grow.
         int maxFrozen = living.getTicksRequiredToFreeze() + 20;
@@ -36,5 +42,14 @@ public class EiswasserBlock extends LiquidBlock {
         if (living.tickCount % DAMAGE_INTERVAL_TICKS == 0) {
             living.hurt(level.damageSources().freeze(), COLD_DAMAGE);
         }
+    }
+
+    /** Players: heater anywhere in the inventory. Mobs: heater in a hand. */
+    private static boolean hasHeater(LivingEntity living) {
+        if (living instanceof Player player) {
+            return player.getInventory().hasAnyMatching(stack -> stack.is(ModItems.HEATER.get()));
+        }
+        return living.getMainHandItem().is(ModItems.HEATER.get())
+                || living.getOffhandItem().is(ModItems.HEATER.get());
     }
 }

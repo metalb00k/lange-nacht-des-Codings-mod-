@@ -46,6 +46,13 @@ public class ModItems {
             () -> new BucketItem(ModFluids.SOURCE_EISWASSER,
                     new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
 
+    // Crafting ingredient for the heater (no recipe yet)
+    public static final RegistryObject<Item> FLAMING_HEART = ITEMS.register("flaming_heart",
+            () -> new Item(new Item.Properties().fireResistant()));
+    // Keep it anywhere in your inventory -> no cold damage from Eiswasser (see EiswasserBlock)
+    public static final RegistryObject<Item> HEATER = ITEMS.register("heater",
+            () -> new Item(new Item.Properties().stacksTo(1).fireResistant()));
+
     // ---- Cryo-Titan weapons & tools (stats: see ModToolTiers) ----
     // Numbers = extra damage and attack speed, same as the vanilla Netherite versions.
     public static final RegistryObject<Item> CRYO_TITAN_SWORD = ITEMS.register("cryo_titan_sword",
