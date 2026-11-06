@@ -1,7 +1,6 @@
 package net.example.per_aspera_ad_astra;
 
 import com.mojang.logging.LogUtils;
-import net.example.per_aspera_ad_astra.item.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.food.FoodProperties;
@@ -41,9 +40,6 @@ public class Per_aspera_ad_astra
     {
         IEventBus modEventBus = context.getModEventBus();
 
-        // Register all custom items (see item/ModItems.java)
-        ModItems.register(modEventBus);
-
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -66,9 +62,6 @@ public class Per_aspera_ad_astra
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.STAR_FRAGMENT);
-        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
