@@ -27,15 +27,21 @@ public class ModBlocks {
     public static final DeferredRegister<Item> BLOCK_ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, Per_aspera_ad_astra.MOD_ID);
     public static final RegistryObject<Block> ERZ_BLOCK = registerBlock("erz_block",
-            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(5f).sound(SoundType.METAL)));
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)));
     public static final RegistryObject<Block> MOD_PORTAL = registerBlock("mod_portal",
             () -> new ModPortalBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noLootTable().noOcclusion().noCollission()));
-    public static final RegistryObject<Block> ALIEN_ICE = registerBlock("eisblock",
-            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(5f).sound(SoundType.GLASS)));
+    public static final RegistryObject<Block> EISHOLZ = registerBlock("eisholz",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
+    public static final RegistryObject<Block> EISBLAETTER = registerBlock("eisblatt",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
+    public static final RegistryObject<Block> EISZAPFEN = registerBlock("eiszapfen",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DRIPSTONE_BLOCK)));
+    public static final RegistryObject<Block> CRYOTITAN = registerBlock("cryo_titan",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK)));
+    public static final RegistryObject<Block> FROSTKRISTALL = registerBlock("frostkristall",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.BLUE_ICE)));
+
     // ---- Custom blocks go here ----
-    // Want a block to generate in the Astra dimension? Register it here first, then use its id
-    // (e.g. per_aspera_ad_astra:eisblock) in src/main/resources/data/per_aspera_ad_astra/worldgen/configured_feature/
-    // and add the feature to worldgen/biome/astra_biome.json (see the comments in those files).
     // Example (needs blockstate, model, texture and lang entry in src/main/resources/assets/per_aspera_ad_astra/):
     //
     // public static final RegistryObject<Block> EXAMPLE_BLOCK = registerBlock("example_block",
