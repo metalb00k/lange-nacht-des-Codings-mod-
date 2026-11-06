@@ -2,6 +2,10 @@ package net.example.per_aspera_ad_astra;
 
 import com.mojang.logging.LogUtils;
 import net.example.per_aspera_ad_astra.block.ModBlocks;
+import net.example.per_aspera_ad_astra.fluid.ModFluidTypes;
+import net.example.per_aspera_ad_astra.fluid.ModFluids;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.example.per_aspera_ad_astra.item.ModCreativeModTabs;
 import net.example.per_aspera_ad_astra.item.ModItems;
 import net.minecraft.client.Minecraft;
@@ -47,6 +51,8 @@ public class Per_aspera_ad_astra
         // DO NOT REMOVE these lines, otherwise nothing from the mod shows up in game!
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModFluidTypes.register(modEventBus);
+        ModFluids.register(modEventBus);
         ModCreativeModTabs.register(modEventBus);
 
         // Register the commonSetup method for modloading
@@ -91,6 +97,11 @@ public class Per_aspera_ad_astra
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            // Make the green ice water see-through like normal water
+            event.enqueueWork(() -> {
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_EISWASSER.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_EISWASSER.get(), RenderType.translucent());
+            });
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());

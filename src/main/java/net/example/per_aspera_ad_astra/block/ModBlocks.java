@@ -1,7 +1,10 @@
 package net.example.per_aspera_ad_astra.block;
 
 import net.example.per_aspera_ad_astra.Per_aspera_ad_astra;
+import net.example.per_aspera_ad_astra.block.custom.EiswasserBlock;
 import net.example.per_aspera_ad_astra.block.custom.ModPortalBlock;
+import net.example.per_aspera_ad_astra.fluid.ModFluids;
+import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -61,6 +64,10 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> EIS_STEIN = registerBlock("eis_stein",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).requiresCorrectToolForDrops()));
+
+    // Green ice water (fluid, see fluid/ModFluids). No BlockItem - you get it with the bucket.
+    public static final RegistryObject<LiquidBlock> EISWASSER_BLOCK = BLOCKS.register("eiswasser",
+            () -> new EiswasserBlock(ModFluids.SOURCE_EISWASSER, BlockBehaviour.Properties.copy(Blocks.WATER).noLootTable()));
 
     // ---- Custom blocks go here ----
     // Example (needs blockstate, model, texture and lang entry in src/main/resources/assets/per_aspera_ad_astra/):

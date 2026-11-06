@@ -1,6 +1,8 @@
 package net.example.per_aspera_ad_astra.item;
 
 import net.example.per_aspera_ad_astra.Per_aspera_ad_astra;
+import net.example.per_aspera_ad_astra.fluid.ModFluids;
+import net.minecraft.world.item.BucketItem;
 import net.example.per_aspera_ad_astra.item.custom.OxygenCanisterItem;
 import net.example.per_aspera_ad_astra.item.custom.SpacesuitChestplateItem;
 import net.minecraft.world.item.ArmorItem;
@@ -38,6 +40,11 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> CRYOTITAN_INGOT = ITEMS.register("cryo_titan_ingot",
             () -> new Item(new Item.Properties()));
+
+    // Bucket with green ice water (see fluid/ModFluids)
+    public static final RegistryObject<Item> EISWASSER_EIMER = ITEMS.register("eiswasser_eimer",
+            () -> new BucketItem(ModFluids.SOURCE_EISWASSER,
+                    new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
 
     // ---- Cryo-Titan weapons & tools (stats: see ModToolTiers) ----
     // Numbers = extra damage and attack speed, same as the vanilla Netherite versions.
