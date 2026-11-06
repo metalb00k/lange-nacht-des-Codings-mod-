@@ -48,7 +48,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> EISERDE = registerBlock("eiserde",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT).noLootTable().noOcclusion().noCollission()));
 
-    public static final RegistryObject<Block> EISHOLZBRETT = registerBlock("eiserde",
+    public static final RegistryObject<Block> EISHOLZBRETT = registerBlock("eisholzbrett",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noLootTable().noOcclusion().noCollission()));
 
     // ---- Custom blocks go here ----
