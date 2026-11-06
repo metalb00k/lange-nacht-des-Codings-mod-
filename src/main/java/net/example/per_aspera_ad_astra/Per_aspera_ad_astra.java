@@ -2,6 +2,7 @@ package net.example.per_aspera_ad_astra;
 
 import com.mojang.logging.LogUtils;
 import net.example.per_aspera_ad_astra.block.ModBlocks;
+import net.example.per_aspera_ad_astra.item.ModCreativeModTabs;
 import net.example.per_aspera_ad_astra.item.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
@@ -43,9 +44,10 @@ public class Per_aspera_ad_astra
         IEventBus modEventBus = context.getModEventBus();
 
         // Register all custom items and blocks (see item/ModItems.java and block/ModBlocks.java)
-        // DO NOT REMOVE these two lines, otherwise nothing from the mod shows up in game!
+        // DO NOT REMOVE these lines, otherwise nothing from the mod shows up in game!
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModCreativeModTabs.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
