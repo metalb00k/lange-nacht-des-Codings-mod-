@@ -1,0 +1,21 @@
+{
+  "_comment": [
+    "HOW OFTEN + WHERE the Erz ore (configured_feature/erz_ore.json) generates.",
+    "count = veins per chunk. height_range = Y levels (this dimension goes from Y 0 to Y 255).",
+    "trapezoid = most common in the middle of the range, uniform = equally common everywhere."
+  ],
+  "feature": "per_aspera_ad_astra:erz_ore",
+  "placement": [
+    { "type": "minecraft:count", "count": 10 },
+    { "type": "minecraft:in_square" },
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:trapezoid",
+        "min_inclusive": { "absolute": 0 },
+        "max_inclusive": { "absolute": 80 }
+      }
+    },
+    { "type": "minecraft:biome" }
+  ]
+}

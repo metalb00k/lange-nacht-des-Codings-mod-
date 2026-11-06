@@ -1,0 +1,23 @@
+{
+  "_comment": [
+    "WHAT is generated: veins of Erz Block that replace stone and deepslate.",
+    ">>> To use another block from our mod, change 'Name' below (e.g. per_aspera_ad_astra:eisblock). <<<",
+    "'size' = how many blocks one vein has (vanilla iron = 9, diamond = 8).",
+    "How often / at which height it appears is set in worldgen/placed_feature/erz_ore.json."
+  ],
+  "type": "minecraft:ore",
+  "config": {
+    "size": 9,
+    "discard_chance_on_air_exposure": 0.0,
+    "targets": [
+      {
+        "target": { "predicate_type": "minecraft:tag_match", "tag": "minecraft:stone_ore_replaceables" },
+        "state": { "Name": "per_aspera_ad_astra:erz_block" }
+      },
+      {
+        "target": { "predicate_type": "minecraft:tag_match", "tag": "minecraft:deepslate_ore_replaceables" },
+        "state": { "Name": "per_aspera_ad_astra:erz_block" }
+      }
+    ]
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "_comment": [
+    "=== ASTRA BIOME TEMPLATE ===",
+    "This is the main biome of the Astra dimension (it is used in data/per_aspera_ad_astra/dimension/astra_dim.json).",
+    "Copy this file with a new name (e.g. ice_wastes.json) to make another biome, then add it to astra_dim.json.",
+    "Display name of the biome: assets/per_aspera_ad_astra/lang/en_us.json -> 'biome.per_aspera_ad_astra.astra_biome'",
+    "Colors are decimal numbers. Convert hex to decimal, e.g. #7A3CFF = 8010751.",
+    "",
+    ">>> WHERE TO ADD OUR MOD BLOCKS <<<",
+    "Blocks are NOT listed in the biome directly. You add them through 'features':",
+    "  1. Make a configured_feature (WHAT block + HOW it is shaped)   -> worldgen/configured_feature/",
+    "  2. Make a placed_feature (HOW OFTEN + WHERE / at which height) -> worldgen/placed_feature/",
+    "  3. Add the placed_feature's id to the right list in 'features' below.",
+    "Examples already done: erz_ore (Erz Block underground) and eis_patch (Eisblock on the surface)."
+  ],
+
+  "has_precipitation": true,
+  "temperature": 0.3,
+  "downfall": 0.4,
+
+  "effects": {
+    "sky_color": 4718740,
+    "fog_color": 2236979,
+    "water_color": 6619391,
+    "water_fog_color": 2228275,
+    "grass_color": 8010751,
+    "foliage_color": 6045439,
+    "mood_sound": {
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2.0
+    }
+  },
+
+  "spawners": {
+    "monster": [
+      { "type": "minecraft:enderman", "weight": 10, "minCount": 1, "maxCount": 2 }
+    ],
+    "creature": [
+      { "type": "minecraft:sheep", "weight": 8, "minCount": 2, "maxCount": 4 }
+    ],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground",
+      "minecraft:canyon"
+    ]
+  },
+
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:ore_dirt",
+      "minecraft:ore_gravel",
+      "minecraft:ore_coal_upper",
+      "minecraft:ore_coal_lower",
+      "minecraft:ore_iron_upper",
+      "minecraft:ore_iron_middle",
+      "minecraft:ore_diamond",
+      "per_aspera_ad_astra:erz_ore"
+    ],
+    [],
+    [],
+    [
+      "per_aspera_ad_astra:eis_patch"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ],
+
+  "_features_help": [
+    "The 'features' list above MUST have exactly 11 inner lists, in this order:",
+    " 1 raw_generation | 2 lakes | 3 local_modifications | 4 underground_structures | 5 surface_structures",
+    " 6 strongholds | 7 underground_ores  <-- ADD MOD ORES HERE (like erz_ore)",
+    " 8 underground_decoration | 9 fluid_springs",
+    " 10 vegetal_decoration  <-- ADD SURFACE BLOCKS / PATCHES / PLANTS HERE (like eis_patch)",
+    " 11 top_layer_modification",
+    "If you add vanilla features (minecraft:...), keep them in the same order vanilla uses,",
+    "otherwise the game crashes with 'Feature order cycle found'."
+  ]
+}

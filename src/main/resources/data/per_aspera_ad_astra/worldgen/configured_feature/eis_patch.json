@@ -1,0 +1,20 @@
+{
+  "_comment": [
+    "WHAT is generated: big patches of Eisblock that replace grass and dirt near the surface.",
+    ">>> To use another block from our mod, change 'Name' below. <<<",
+    "'target' = which blocks get replaced. #minecraft:dirt includes grass blocks, dirt, podzol, etc.",
+    "Use minecraft:base_stone_overworld instead to replace stone.",
+    "How often / at which height it appears is set in worldgen/placed_feature/eis_patch.json."
+  ],
+  "type": "minecraft:ore",
+  "config": {
+    "size": 48,
+    "discard_chance_on_air_exposure": 0.0,
+    "targets": [
+      {
+        "target": { "predicate_type": "minecraft:tag_match", "tag": "minecraft:dirt" },
+        "state": { "Name": "per_aspera_ad_astra:eisblock" }
+      }
+    ]
+  }
+}

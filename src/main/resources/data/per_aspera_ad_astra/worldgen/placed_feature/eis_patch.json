@@ -1,0 +1,20 @@
+{
+  "_comment": [
+    "HOW OFTEN + WHERE the Eisblock patches (configured_feature/eis_patch.json) generate.",
+    "count = patches per chunk. The height range covers where the surface usually is."
+  ],
+  "feature": "per_aspera_ad_astra:eis_patch",
+  "placement": [
+    { "type": "minecraft:count", "count": 3 },
+    { "type": "minecraft:in_square" },
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:uniform",
+        "min_inclusive": { "absolute": 50 },
+        "max_inclusive": { "absolute": 200 }
+      }
+    },
+    { "type": "minecraft:biome" }
+  ]
+}
