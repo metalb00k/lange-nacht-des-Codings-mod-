@@ -2,7 +2,7 @@ package net.example.per_aspera_ad_astra.entity.client;
 
 import net.example.per_aspera_ad_astra.Per_aspera_ad_astra;
 import net.example.per_aspera_ad_astra.entity.SchneeleopardEntity;
-import net.minecraft.client.model.CatModel;
+import net.minecraft.client.model.OcelotModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -16,12 +16,12 @@ import net.minecraft.resources.ResourceLocation;
 /**
  * Snow leopard model, exported from Blockbench (schneeleopard.bbmodel).
  *
- * It extends the vanilla CatModel, so walking, sitting, lying down and sneaking
- * are animated exactly like a cat. For that to work the parts must have the
- * vanilla names (head, body, tail1, tail2, left_hind_leg, ...), so they were
- * renamed from the Blockbench export.
+ * It extends the vanilla OcelotModel, so walking and running are animated like
+ * an ocelot/cat. For that to work the parts must have the vanilla names
+ * (head, body, tail1, tail2, left_hind_leg, ...), so they were renamed from
+ * the Blockbench export.
  */
-public class SchneeleopardModel extends CatModel<SchneeleopardEntity> {
+public class SchneeleopardModel extends OcelotModel<SchneeleopardEntity> {
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
             new ResourceLocation(Per_aspera_ad_astra.MOD_ID, "schneeleopard"), "main");
 
