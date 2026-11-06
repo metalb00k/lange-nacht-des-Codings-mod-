@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "minecraft:block/netherite_block"
+    "all": "per_aspera_ad_astra:block/cyro_titan_block"
   }
 }
