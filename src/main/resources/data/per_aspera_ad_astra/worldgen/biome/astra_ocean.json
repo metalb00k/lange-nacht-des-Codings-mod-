@@ -1,0 +1,77 @@
+{
+  "_comment": [
+    "=== ASTRA OCEAN ===",
+    "The deep Eiswasser areas of Astra (low 'continentalness' in dimension/astra_dim.json).",
+    "Same ores as Astra Fields, but no trees / surface patches and no land animals.",
+    "Sunken houses only spawn here (tag: tags/worldgen/biome/has_sunken_house.json).",
+    "IMPORTANT: features that are in both biomes must stay in the SAME ORDER in both files,",
+    "otherwise the game crashes with 'Feature order cycle found'."
+  ],
+
+  "has_precipitation": true,
+  "temperature": 0.3,
+  "downfall": 0.4,
+
+  "effects": {
+    "sky_color": 4718740,
+    "fog_color": 2236979,
+    "water_color": 6619391,
+    "water_fog_color": 2228275,
+    "grass_color": 8010751,
+    "foliage_color": 6045439,
+    "mood_sound": {
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2.0
+    }
+  },
+
+  "spawners": {
+    "monster": [],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground",
+      "minecraft:canyon"
+    ]
+  },
+
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:ore_dirt",
+      "minecraft:ore_gravel",
+      "minecraft:ore_coal_upper",
+      "minecraft:ore_coal_lower",
+      "minecraft:ore_iron_upper",
+      "minecraft:ore_iron_middle",
+      "minecraft:ore_diamond",
+      "per_aspera_ad_astra:eiszapfen_blob",
+      "per_aspera_ad_astra:erz_ore",
+      "per_aspera_ad_astra:cryo_titan_ore"
+    ],
+    [],
+    [],
+    [],
+    [
+      "minecraft:freeze_top_layer",
+      "per_aspera_ad_astra:freeze_eiswasser"
+    ]
+  ]
+}

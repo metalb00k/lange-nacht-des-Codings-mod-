@@ -1,7 +1,8 @@
 {
   "_comment": [
     "The Astra dimension. Each entry in 'biomes' is one biome + the climate where it appears.",
-    "Right now the whole dimension is our own Astra Fields biome.",
+    "Land = Astra Fields, deep water areas (continentalness below -0.19, same as vanilla oceans) = Astra Ocean.",
+    "A parameter can be one number or a range [min, max] (-1 to 1, continentalness goes a bit below -1).",
     "To add a new biome: create it in worldgen/biome/ (copy astra_biome.json) and add an entry here",
     "with different parameter values, e.g.:",
     "  { \"biome\": \"per_aspera_ad_astra:ice_desert\", \"parameters\": { \"temperature\": -0.5, \"humidity\": 0.0, \"continentalness\": 0.0, \"erosion\": 0.0, \"depth\": 0.0, \"weirdness\": 0.0, \"offset\": 0.0 } }",
@@ -15,7 +16,8 @@
     "biome_source": {
       "type": "minecraft:multi_noise",
       "biomes": [
-        { "biome": "per_aspera_ad_astra:astra_biome", "parameters": { "temperature": 0.0, "humidity": 0.0, "continentalness": 0.0, "erosion": 0.0, "depth": 0.0, "weirdness": 0.0, "offset": 0.0 } }
+        { "biome": "per_aspera_ad_astra:astra_biome", "parameters": { "temperature": [-1.0, 1.0], "humidity": [-1.0, 1.0], "continentalness": [-0.19, 1.0], "erosion": [-1.0, 1.0], "depth": 0.0, "weirdness": [-1.0, 1.0], "offset": 0.0 } },
+        { "biome": "per_aspera_ad_astra:astra_ocean", "parameters": { "temperature": [-1.0, 1.0], "humidity": [-1.0, 1.0], "continentalness": [-1.2, -0.19], "erosion": [-1.0, 1.0], "depth": 0.0, "weirdness": [-1.0, 1.0], "offset": 0.0 } }
       ]
     }
   }

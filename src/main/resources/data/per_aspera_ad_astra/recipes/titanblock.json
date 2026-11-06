@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": ["III", "III", "III"],
+  "key": {
+    "I": { "item": "per_aspera_ad_astra:cryo_titan_ingot" }
+  },
+  "result": { "item": "per_aspera_ad_astra:titanblock", "count": 1 }
+}

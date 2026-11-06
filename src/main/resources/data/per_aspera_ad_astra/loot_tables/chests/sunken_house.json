@@ -1,0 +1,45 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "_comment": "Common loot: 3-6 stacks per chest",
+      "rolls": { "type": "minecraft:uniform", "min": 3, "max": 6 },
+      "bonus_rolls": 0,
+      "entries": [
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:oxygen_canister", "weight": 20,
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 1, "max": 3 } } ] },
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:cryo_titan_erz", "weight": 15,
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 1, "max": 3 } } ] },
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:eisholzbrett", "weight": 15,
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 4, "max": 12 } } ] },
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:star_fragment", "weight": 10,
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 1, "max": 2 } } ] },
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:frostkristall", "weight": 10,
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 2, "max": 6 } } ] },
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:eisblock", "weight": 10,
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 2, "max": 6 } } ] },
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:eiswasser_eimer", "weight": 5 }
+      ]
+    },
+    {
+      "_comment": "Rare loot: 1 roll, 30% chance of nothing",
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        { "type": "minecraft:empty", "weight": 30 },
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:cryo_titan_ingot", "weight": 20,
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 1, "max": 2 } } ] },
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:spacesuit_helmet", "weight": 8 },
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:spacesuit_chestplate", "weight": 8 },
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:spacesuit_leggings", "weight": 8 },
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:spacesuit_boots", "weight": 8 },
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:cryo_titan_sword", "weight": 4,
+          "functions": [ { "function": "minecraft:enchant_randomly" } ] },
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:cryo_titan_pickaxe", "weight": 4,
+          "functions": [ { "function": "minecraft:enchant_randomly" } ] },
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:schneeleopard_spawn_egg", "weight": 3 },
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:titanblock", "weight": 2 }
+      ]
+    }
+  ]
+}

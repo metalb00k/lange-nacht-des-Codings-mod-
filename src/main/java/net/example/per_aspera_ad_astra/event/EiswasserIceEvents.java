@@ -27,12 +27,19 @@ public class EiswasserIceEvents {
         }
         BlockPos pos = event.getPos();
         if (!event.getState().is(Blocks.ICE)
-                || !level.getFluidState(pos.below()).is(ModFluids.SOURCE_EISWASSER.get())
                 || event.getPlayer().isCreative()
                 || EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, event.getPlayer().getMainHandItem()) > 0) {
             return;
         }
-        event.setCanceled(true);
-        level.setBlock(pos, ModBlocks.EISWASSER_BLOCK.get().defaultBlockState(), 3);
+        if (level.getFluidState(pos.below()).is(ModFluids.SOURCE_EISWASSER.get())) {
+            // Ice on Eiswasser -> Eiswasser (anywhere)
+            event.setCanceled(true);
+            level.setBlock(pos, ModBlocks.EISWASSER_BLOCK.get().defaultBlockState(), 3);
+        } else if (AstraEnvironmentEvents.isAstra(level)) {
+            // In Astra, normal water would instantly freeze back into ice (see AstraEnvironmentEvents),
+            // so broken ice just disappears instead of turning into water.
+            event.setCanceled(true);
+            level.removeBlock(pos, false);
+        }
     }
 }

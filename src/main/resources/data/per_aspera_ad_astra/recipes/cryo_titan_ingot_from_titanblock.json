@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "item": "per_aspera_ad_astra:titanblock" }
+  ],
+  "result": { "item": "per_aspera_ad_astra:cryo_titan_ingot", "count": 9 }
+}

@@ -1,5 +1,5 @@
 {
-  "_comment": "Big blobs of Eiszapfen stone underground (like granite/diorite in the Overworld).",
+  "_comment": "Big blobs of Eisblock underground (Eiszapfen is an icicle now, so it is not used here) (like granite/diorite in the Overworld).",
   "type": "minecraft:ore",
   "config": {
     "size": 64,
@@ -7,7 +7,7 @@
     "targets": [
       {
         "target": { "predicate_type": "minecraft:tag_match", "tag": "minecraft:base_stone_overworld" },
-        "state": { "Name": "per_aspera_ad_astra:eiszapfen" }
+        "state": { "Name": "per_aspera_ad_astra:eisblock" }
       }
     ]
   }
