@@ -62,6 +62,24 @@ public class ModEntities {
                             .clientTrackingRange(8)
                             .build("ice_fox"));
 
+    // Same size as a vanilla ghast. No spawn egg, no natural spawning: use /summon per_aspera_ad_astra:ice_ghast
+    public static final RegistryObject<EntityType<IceGhastEntity>> ICE_GHAST =
+            ENTITY_TYPES.register("ice_ghast", () ->
+                    EntityType.Builder.of(IceGhastEntity::new, MobCategory.MONSTER)
+                            .sized(4.0F, 4.0F)
+                            .fireImmune()
+                            .clientTrackingRange(10)
+                            .build("ice_ghast"));
+
+    // The projectile the ice ghast shoots (same settings as the vanilla fireball)
+    public static final RegistryObject<EntityType<IceChargeEntity>> ICE_CHARGE =
+            ENTITY_TYPES.register("ice_charge", () ->
+                    EntityType.Builder.<IceChargeEntity>of(IceChargeEntity::new, MobCategory.MISC)
+                            .sized(1.0F, 1.0F)
+                            .clientTrackingRange(4)
+                            .updateInterval(10)
+                            .build("ice_charge"));
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
@@ -72,6 +90,7 @@ public class ModEntities {
         event.put(YETI.get(), YetiEntity.createAttributes().build());
         event.put(ICE_SPIDER.get(), IceSpiderEntity.createAttributes().build());
         event.put(ICE_FOX.get(), IceFoxEntity.createAttributes().build());
+        event.put(ICE_GHAST.get(), IceGhastEntity.createAttributes().build());
     }
 
     /** Where natural spawns are allowed: on solid ground (snow, stone, ...), like vanilla cats. */

@@ -97,6 +97,11 @@ public class ModItems {
     public static final RegistryObject<Item> SCHNEELEOPARD_SPAWN_EGG = ITEMS.register("schneeleopard_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.SCHNEELEOPARD, 0xE6E6E6, 0x3C3C3C, new Item.Properties()));
 
+    // Only used as the look of the ice ghast's projectile (textures/item/ice_charge.png).
+    // Not in any creative tab.
+    public static final RegistryObject<Item> ICE_CHARGE = ITEMS.register("ice_charge",
+            () -> new Item(new Item.Properties()));
+
     // ---- End of items ----
 
     public static void register(IEventBus eventBus) {
