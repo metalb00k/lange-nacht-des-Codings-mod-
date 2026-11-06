@@ -1,6 +1,8 @@
 package net.example.per_aspera_ad_astra.item;
 
 import net.example.per_aspera_ad_astra.Per_aspera_ad_astra;
+import net.example.per_aspera_ad_astra.item.custom.OxygenCanisterItem;
+import net.example.per_aspera_ad_astra.item.custom.SpacesuitChestplateItem;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.HoeItem;
@@ -62,6 +64,20 @@ public class ModItems {
             () -> new ArmorItem(ModArmorMaterials.CRYO_TITAN, ArmorItem.Type.LEGGINGS, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> CRYO_TITAN_BOOTS = ITEMS.register("cryo_titan_boots",
             () -> new ArmorItem(ModArmorMaterials.CRYO_TITAN, ArmorItem.Type.BOOTS, new Item.Properties().fireResistant()));
+
+    // ---- Spacesuit (needed to breathe in Astra, see event/OxygenEvents) ----
+    public static final RegistryObject<Item> SPACESUIT_HELMET = ITEMS.register("spacesuit_helmet",
+            () -> new ArmorItem(ModArmorMaterials.SPACESUIT, ArmorItem.Type.HELMET, new Item.Properties()));
+    // The chestplate is the oxygen tank
+    public static final RegistryObject<Item> SPACESUIT_CHESTPLATE = ITEMS.register("spacesuit_chestplate",
+            () -> new SpacesuitChestplateItem(ModArmorMaterials.SPACESUIT, new Item.Properties()));
+    public static final RegistryObject<Item> SPACESUIT_LEGGINGS = ITEMS.register("spacesuit_leggings",
+            () -> new ArmorItem(ModArmorMaterials.SPACESUIT, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> SPACESUIT_BOOTS = ITEMS.register("spacesuit_boots",
+            () -> new ArmorItem(ModArmorMaterials.SPACESUIT, ArmorItem.Type.BOOTS, new Item.Properties()));
+    // Right-click to refill the spacesuit's oxygen tank
+    public static final RegistryObject<Item> OXYGEN_CANISTER = ITEMS.register("oxygen_canister",
+            () -> new OxygenCanisterItem(new Item.Properties().stacksTo(16)));
 
     // ---- End of items ----
 

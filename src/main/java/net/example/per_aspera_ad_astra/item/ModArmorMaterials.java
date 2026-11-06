@@ -5,6 +5,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.Supplier;
@@ -27,7 +28,17 @@ public enum ModArmorMaterials implements ArmorMaterial {
             SoundEvents.ARMOR_EQUIP_NETHERITE,
             3.5f,                       // toughness
             0.15f,                      // knockback resistance (0.15 = 15% per piece)
-            () -> Ingredient.of(ModItems.CRYOTITAN_INGOT.get()));
+            () -> Ingredient.of(ModItems.CRYOTITAN_INGOT.get())),
+
+    // Spacesuit: protection like iron armor (iron = 2/5/6/2), a bit less durable. Repair with iron ingots.
+    SPACESUIT("spacesuit",
+            13,                         // durability multiplier (iron = 15)
+            new int[]{ 2, 5, 6, 2 },    // protection: boots, leggings, chestplate, helmet
+            9,                          // enchantability (iron = 9)
+            SoundEvents.ARMOR_EQUIP_IRON,
+            0.0f,                       // toughness
+            0.0f,                       // knockback resistance
+            () -> Ingredient.of(Items.IRON_INGOT));
 
     // Base durability per piece, same as vanilla: boots, leggings, chestplate, helmet
     private static final int[] BASE_DURABILITY = { 13, 15, 16, 11 };

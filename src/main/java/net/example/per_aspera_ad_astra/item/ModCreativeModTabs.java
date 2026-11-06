@@ -39,6 +39,15 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.CRYO_TITAN_CHESTPLATE.get());
                         pOutput.accept(ModItems.CRYO_TITAN_LEGGINGS.get());
                         pOutput.accept(ModItems.CRYO_TITAN_BOOTS.get());
+                        // Spacesuit + oxygen (the creative-tab chestplate comes with a full tank)
+                        pOutput.accept(ModItems.SPACESUIT_HELMET.get());
+                        ItemStack fullTank = new ItemStack(ModItems.SPACESUIT_CHESTPLATE.get());
+                        net.example.per_aspera_ad_astra.item.custom.SpacesuitChestplateItem.setOxygen(fullTank,
+                                net.example.per_aspera_ad_astra.item.custom.SpacesuitChestplateItem.MAX_OXYGEN);
+                        pOutput.accept(fullTank);
+                        pOutput.accept(ModItems.SPACESUIT_LEGGINGS.get());
+                        pOutput.accept(ModItems.SPACESUIT_BOOTS.get());
+                        pOutput.accept(ModItems.OXYGEN_CANISTER.get());
                         // Block
                         pOutput.accept(ModBlocks.MOD_PORTAL.get());
                         pOutput.accept(ModBlocks.EISHOLZ.get());
