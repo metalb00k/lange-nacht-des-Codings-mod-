@@ -1,0 +1,13 @@
+{
+  "display": {
+    "icon": { "item": "per_aspera_ad_astra:mod_portal" },
+    "title": { "translate": "advancements.per_aspera_ad_astra.root.title" },
+    "description": { "translate": "advancements.per_aspera_ad_astra.root.description" },
+    "frame": "task",
+    "background": "minecraft:textures/block/packed_ice.png",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": { "enter_astra": { "trigger": "minecraft:changed_dimension", "conditions": { "to": "per_aspera_ad_astra:astra_dim" } } }
+}

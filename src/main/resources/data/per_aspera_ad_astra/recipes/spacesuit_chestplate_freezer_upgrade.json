@@ -1,0 +1,12 @@
+{
+  "_comment": "HEATED spacesuit chestplate + freezer -> can shoot ice (key V). Needs the heater upgrade first.",
+  "type": "per_aspera_ad_astra:spacesuit_upgrade",
+  "category": "equipment",
+  "upgrade": "freezer",
+  "requires": "heater",
+  "ingredients": [
+    { "item": "per_aspera_ad_astra:spacesuit_chestplate" },
+    { "item": "per_aspera_ad_astra:freezer" }
+  ],
+  "result": { "item": "per_aspera_ad_astra:spacesuit_chestplate", "count": 1 }
+}

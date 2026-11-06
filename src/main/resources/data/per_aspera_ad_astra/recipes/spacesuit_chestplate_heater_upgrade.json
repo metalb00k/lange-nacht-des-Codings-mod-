@@ -1,0 +1,11 @@
+{
+  "_comment": "Spacesuit chestplate + heater -> heated chestplate (keeps its oxygen). See recipe/SpacesuitUpgradeRecipe.",
+  "type": "per_aspera_ad_astra:spacesuit_upgrade",
+  "category": "equipment",
+  "upgrade": "heater",
+  "ingredients": [
+    { "item": "per_aspera_ad_astra:spacesuit_chestplate" },
+    { "item": "per_aspera_ad_astra:heater" }
+  ],
+  "result": { "item": "per_aspera_ad_astra:spacesuit_chestplate", "count": 1 }
+}

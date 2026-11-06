@@ -25,5 +25,6 @@ public class ModEntityClientEvents {
         event.registerEntityRenderer(ModEntities.YETI.get(), YetiRenderer::new);
         event.registerEntityRenderer(ModEntities.ICE_SPIDER.get(), IceSpiderRenderer::new);
         event.registerEntityRenderer(ModEntities.ICE_FOX.get(), IceFoxRenderer::new);
+        event.registerEntityRenderer(ModEntities.ICE_SHARD.get(), net.minecraft.client.renderer.entity.ThrownItemRenderer::new);
     }
 }

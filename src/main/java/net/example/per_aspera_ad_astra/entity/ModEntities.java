@@ -62,6 +62,15 @@ public class ModEntities {
                             .clientTrackingRange(8)
                             .build("ice_fox"));
 
+    // Ice shard shot by the freezer-upgraded spacesuit
+    public static final RegistryObject<EntityType<IceShardProjectile>> ICE_SHARD =
+            ENTITY_TYPES.register("ice_shard", () ->
+                    EntityType.Builder.<IceShardProjectile>of(IceShardProjectile::new, MobCategory.MISC)
+                            .sized(0.25F, 0.25F)
+                            .clientTrackingRange(4)
+                            .updateInterval(10)
+                            .build("ice_shard"));
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

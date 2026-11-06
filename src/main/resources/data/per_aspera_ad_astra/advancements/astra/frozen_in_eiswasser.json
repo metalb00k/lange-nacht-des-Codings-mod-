@@ -1,0 +1,13 @@
+{
+  "display": {
+    "icon": { "item": "per_aspera_ad_astra:eiswasser_eimer" },
+    "title": { "translate": "advancements.per_aspera_ad_astra.frozen_in_eiswasser.title" },
+    "description": { "translate": "advancements.per_aspera_ad_astra.frozen_in_eiswasser.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "per_aspera_ad_astra:astra/root",
+  "criteria": { "code": { "trigger": "minecraft:impossible" } }
+}

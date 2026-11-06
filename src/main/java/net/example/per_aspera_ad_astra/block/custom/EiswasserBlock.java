@@ -1,6 +1,8 @@
 package net.example.per_aspera_ad_astra.block.custom;
 
 import net.example.per_aspera_ad_astra.item.ModItems;
+import net.example.per_aspera_ad_astra.item.custom.SpacesuitChestplateItem;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
@@ -44,8 +46,11 @@ public class EiswasserBlock extends LiquidBlock {
         }
     }
 
-    /** Players: heater anywhere in the inventory. Mobs: heater in a hand. */
+    /** Players: heater anywhere in the inventory. Mobs: heater in a hand. Anyone: heater-upgraded spacesuit. */
     private static boolean hasHeater(LivingEntity living) {
+        if (SpacesuitChestplateItem.hasUpgrade(living.getItemBySlot(EquipmentSlot.CHEST), SpacesuitChestplateItem.HEATER)) {
+            return true;
+        }
         if (living instanceof Player player) {
             return player.getInventory().hasAnyMatching(stack -> stack.is(ModItems.HEATER.get()));
         }

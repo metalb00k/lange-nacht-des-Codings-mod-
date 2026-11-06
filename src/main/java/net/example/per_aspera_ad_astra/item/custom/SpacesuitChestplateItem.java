@@ -25,6 +25,12 @@ public class SpacesuitChestplateItem extends ArmorItem {
     public static final int MAX_OXYGEN = 6000;
     private static final String OXYGEN_TAG = "Oxygen";
 
+    // Upgrades (crafted in via recipe/SpacesuitUpgradeRecipe), stored as boolean NBT tags
+    /** Heater upgrade: keeps you warm in Eiswasser, like carrying a heater. */
+    public static final String HEATER = "heater";
+    /** Freezer upgrade (needs the heater first): shoot ice shards with the shoot-ice key (default V). */
+    public static final String FREEZER = "freezer";
+
     public SpacesuitChestplateItem(ArmorMaterial material, Properties properties) {
         super(material, Type.CHESTPLATE, properties);
     }
@@ -35,6 +41,21 @@ public class SpacesuitChestplateItem extends ArmorItem {
 
     public static void setOxygen(ItemStack stack, int oxygen) {
         stack.getOrCreateTag().putInt(OXYGEN_TAG, Math.max(0, Math.min(MAX_OXYGEN, oxygen)));
+    }
+
+    public static boolean hasUpgrade(ItemStack stack, String upgrade) {
+        return stack.getItem() instanceof SpacesuitChestplateItem && stack.hasTag()
+                && stack.getTag().getBoolean(upgrade);
+    }
+
+    public static void addUpgrade(ItemStack stack, String upgrade) {
+        stack.getOrCreateTag().putBoolean(upgrade, true);
+    }
+
+    /** Upgraded suits shimmer like enchanted items. */
+    @Override
+    public boolean isFoil(ItemStack stack) {
+        return hasUpgrade(stack, HEATER) || super.isFoil(stack);
     }
 
     /** True if the player wears all 4 spacesuit pieces. */
@@ -56,6 +77,12 @@ public class SpacesuitChestplateItem extends ArmorItem {
         tooltip.add(Component.translatable("tooltip.per_aspera_ad_astra.oxygen",
                         getOxygenPercent(stack), seconds / 60, String.format("%02d", seconds % 60))
                 .withStyle(ChatFormatting.AQUA));
+        if (hasUpgrade(stack, HEATER)) {
+            tooltip.add(Component.translatable("tooltip.per_aspera_ad_astra.upgrade_heater").withStyle(ChatFormatting.GOLD));
+        }
+        if (hasUpgrade(stack, FREEZER)) {
+            tooltip.add(Component.translatable("tooltip.per_aspera_ad_astra.upgrade_freezer").withStyle(ChatFormatting.BLUE));
+        }
         super.appendHoverText(stack, level, tooltip, flag);
     }
 }

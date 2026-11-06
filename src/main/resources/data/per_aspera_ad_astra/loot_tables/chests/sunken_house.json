@@ -38,7 +38,9 @@
         { "type": "minecraft:item", "name": "per_aspera_ad_astra:cryo_titan_pickaxe", "weight": 4,
           "functions": [ { "function": "minecraft:enchant_randomly" } ] },
         { "type": "minecraft:item", "name": "per_aspera_ad_astra:schneeleopard_spawn_egg", "weight": 3 },
-        { "type": "minecraft:item", "name": "per_aspera_ad_astra:titanblock", "weight": 2 }
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:titanblock", "weight": 2 },
+        { "_comment": "Ingredient for the freezer (spacesuit ice-shot upgrade): 5% per chest",
+          "type": "minecraft:item", "name": "per_aspera_ad_astra:liver_of_frost", "weight": 5 }
       ]
     }
   ]

@@ -54,6 +54,12 @@ public class ModItems {
     // Keep it anywhere in your inventory -> no cold damage from Eiswasser (see EiswasserBlock)
     public static final RegistryObject<Item> HEATER = ITEMS.register("heater",
             () -> new Item(new Item.Properties().stacksTo(1).fireResistant()));
+    // Crafting ingredient for the freezer (no way to get it in survival yet, like the flaming heart)
+    public static final RegistryObject<Item> LIVER_OF_FROST = ITEMS.register("liver_of_frost",
+            () -> new Item(new Item.Properties()));
+    // Spacesuit upgrade: craft it with a HEATED spacesuit chestplate -> shoot ice (see network/ShootIcePacket)
+    public static final RegistryObject<Item> FREEZER = ITEMS.register("freezer",
+            () -> new Item(new Item.Properties().stacksTo(1)));
 
     // ---- Cryo-Titan weapons & tools (stats: see ModToolTiers) ----
     // Numbers = extra damage and attack speed, same as the vanilla Netherite versions.

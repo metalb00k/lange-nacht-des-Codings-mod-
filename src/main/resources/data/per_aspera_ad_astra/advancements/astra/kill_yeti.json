@@ -1,0 +1,13 @@
+{
+  "display": {
+    "icon": { "item": "minecraft:snowball" },
+    "title": { "translate": "advancements.per_aspera_ad_astra.kill_yeti.title" },
+    "description": { "translate": "advancements.per_aspera_ad_astra.kill_yeti.description" },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "per_aspera_ad_astra:astra/root",
+  "criteria": { "kill_yeti": { "trigger": "minecraft:player_killed_entity", "conditions": { "entity": [ { "condition": "minecraft:entity_properties", "entity": "this", "predicate": { "type": "per_aspera_ad_astra:yeti" } } ] } } }
+}

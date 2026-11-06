@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["III", "ILI", "III"],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "L": { "item": "per_aspera_ad_astra:liver_of_frost" }
+  },
+  "result": { "item": "per_aspera_ad_astra:freezer", "count": 1 }
+}

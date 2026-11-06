@@ -2,6 +2,7 @@ package net.example.per_aspera_ad_astra.block;
 
 import net.example.per_aspera_ad_astra.Per_aspera_ad_astra;
 import net.example.per_aspera_ad_astra.block.custom.EiswasserBlock;
+import net.example.per_aspera_ad_astra.block.custom.MethaneisBlock;
 import net.example.per_aspera_ad_astra.block.custom.ModPortalBlock;
 import net.example.per_aspera_ad_astra.fluid.ModFluids;
 import net.minecraft.world.level.block.LiquidBlock;
@@ -88,7 +89,7 @@ public class ModBlocks {
 
     //MethanEIs
     public static final RegistryObject<Block> METHANEIS = registerBlock("methaneis",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.ICE)));
+            () -> new MethaneisBlock(BlockBehaviour.Properties.copy(Blocks.ICE)));
 
     //Schwefel
     public static final RegistryObject<Block> SCHWEFEL = registerBlock("schwefel",
