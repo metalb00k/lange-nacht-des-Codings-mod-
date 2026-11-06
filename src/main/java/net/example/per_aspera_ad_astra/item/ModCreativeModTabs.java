@@ -30,6 +30,11 @@ public class ModCreativeModTabs {
                         // Blocks
                         pOutput.accept(ModBlocks.ERZ_BLOCK.get());
                         pOutput.accept(ModBlocks.MOD_PORTAL.get());
+                        pOutput.accept(ModBlocks.EISHOLZ.get());
+                        pOutput.accept(ModBlocks.EISBLAETTER.get());
+                        pOutput.accept(ModBlocks.EISZAPFEN.get());
+                        pOutput.accept(ModBlocks.CRYOTITAN.get());
+                        pOutput.accept(ModBlocks.FROSTKRISTALL.get());
                     })
                     .build());
 

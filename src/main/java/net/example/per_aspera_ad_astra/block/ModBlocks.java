@@ -27,9 +27,19 @@ public class ModBlocks {
     public static final DeferredRegister<Item> BLOCK_ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, Per_aspera_ad_astra.MOD_ID);
     public static final RegistryObject<Block> ERZ_BLOCK = registerBlock("erz_block",
-            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(5f).sound(SoundType.METAL)));
+            () -> new Block(BlockBehaviour.Properties.of(Blocks.IRON_ORE).mapColor().strength().sound()));
     public static final RegistryObject<Block> MOD_PORTAL = registerBlock("mod_portal",
             () -> new ModPortalBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noLootTable().noOcclusion().noCollission()));
+    public static final RegistryObject<Block> EISHOLZ = registerBlock("Eisholz",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).noLootTable().noOcclusion().noCollission()));
+    public static final RegistryObject<Block> EISBLAETTER = registerBlock("Eisblatt",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES).noLootTable().noOcclusion().noCollission()));
+    public static final RegistryObject<Block> EISZAPFEN = registerBlock("Eiszapfen",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DRIPSTONE_BLOCK).noLootTable().noOcclusion().noCollission()));
+    public static final RegistryObject<Block> CRYOTITAN = registerBlock("Cryo_Titan",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK).noLootTable().noOcclusion().noCollission()));
+    public static final RegistryObject<Block> FROSTKRISTALL = registerBlock("Eiszapfen",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.BLUE_ICE).noLootTable().noOcclusion().noCollission()));
 
     // ---- Custom blocks go here ----
     // Example (needs blockstate, model, texture and lang entry in src/main/resources/assets/per_aspera_ad_astra/):
