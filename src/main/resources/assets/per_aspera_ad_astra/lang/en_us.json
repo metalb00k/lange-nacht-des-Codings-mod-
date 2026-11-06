@@ -43,5 +43,7 @@
   "block.per_aspera_ad_astra.eisblock": "Eisblock",
   "block.per_aspera_ad_astra.eisziegelstein_stufen": "Eisziegelsteinstufen",
   "creativetab.per_aspera_tab": "Per Aspera Ad Astra",
-  "biome.per_aspera_ad_astra.astra_biome": "Astra Fields"
+  "biome.per_aspera_ad_astra.astra_biome": "Astra Fields",
+  "entity.per_aspera_ad_astra.schneeleopard": "Schneeleopard",
+  "item.per_aspera_ad_astra.schneeleopard_spawn_egg": "Schneeleopard-Spawn-Ei"
 }

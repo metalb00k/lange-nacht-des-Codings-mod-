@@ -12,6 +12,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.SwordItem;
+import net.example.per_aspera_ad_astra.entity.ModEntities;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -89,6 +91,11 @@ public class ModItems {
     // Right-click to refill the spacesuit's oxygen tank
     public static final RegistryObject<Item> OXYGEN_CANISTER = ITEMS.register("oxygen_canister",
             () -> new OxygenCanisterItem(new Item.Properties().stacksTo(16)));
+
+    // ---- Mobs ----
+    // Spawn egg for the snow leopard (colors: white background, dark grey spots)
+    public static final RegistryObject<Item> SCHNEELEOPARD_SPAWN_EGG = ITEMS.register("schneeleopard_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.SCHNEELEOPARD, 0xE6E6E6, 0x3C3C3C, new Item.Properties()));
 
     // ---- End of items ----
 

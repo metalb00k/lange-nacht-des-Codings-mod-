@@ -2,6 +2,7 @@ package net.example.per_aspera_ad_astra;
 
 import com.mojang.logging.LogUtils;
 import net.example.per_aspera_ad_astra.block.ModBlocks;
+import net.example.per_aspera_ad_astra.entity.ModEntities;
 import net.example.per_aspera_ad_astra.fluid.ModFluidTypes;
 import net.example.per_aspera_ad_astra.fluid.ModFluids;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -53,6 +54,7 @@ public class Per_aspera_ad_astra
         ModBlocks.register(modEventBus);
         ModFluidTypes.register(modEventBus);
         ModFluids.register(modEventBus);
+        ModEntities.register(modEventBus);
         ModCreativeModTabs.register(modEventBus);
         net.example.per_aspera_ad_astra.worldgen.feature.ModFeatures.register(modEventBus);
 
@@ -80,6 +82,9 @@ public class Per_aspera_ad_astra
     {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.STAR_FRAGMENT);
+        }
+        if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
+            event.accept(ModItems.SCHNEELEOPARD_SPAWN_EGG);
         }
     }
 

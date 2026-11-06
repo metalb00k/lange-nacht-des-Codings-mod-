@@ -50,6 +50,8 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.SPACESUIT_LEGGINGS.get());
                         pOutput.accept(ModItems.SPACESUIT_BOOTS.get());
                         pOutput.accept(ModItems.OXYGEN_CANISTER.get());
+                        // Mobs
+                        pOutput.accept(ModItems.SCHNEELEOPARD_SPAWN_EGG.get());
                         // Block
                         pOutput.accept(ModBlocks.MOD_PORTAL.get());
                         pOutput.accept(ModBlocks.EISHOLZ.get());
