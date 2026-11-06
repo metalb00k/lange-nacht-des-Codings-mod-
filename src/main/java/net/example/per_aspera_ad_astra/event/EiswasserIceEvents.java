@@ -26,6 +26,18 @@ public class EiswasserIceEvents {
             return;
         }
         BlockPos pos = event.getPos();
+        boolean isMethaneis = event.getState().is(ModBlocks.METHANEIS.get());
+        if (isMethaneis && level.getFluidState(pos.below()).is(ModFluids.SOURCE_EISWASSER.get())
+                && !event.getPlayer().isCreative()) {
+            // Methaneis (the frozen surface of Astra's lakes) -> the Eiswasser below shows through.
+            // The block still drops normally (loot table), only the hole is filled with Eiswasser.
+            level.getServer().execute(() -> {
+                if (level.isEmptyBlock(pos)) {
+                    level.setBlock(pos, ModBlocks.EISWASSER_BLOCK.get().defaultBlockState(), 3);
+                }
+            });
+            return;
+        }
         if (!event.getState().is(Blocks.ICE)
                 || event.getPlayer().isCreative()
                 || EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, event.getPlayer().getMainHandItem()) > 0) {

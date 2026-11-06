@@ -1,0 +1,9 @@
+{
+  "_comment": [
+    "Thermal caves: deep caves (below ~Y 55, fully below Y 35) get walls of Thermisches Gestein,",
+    "Schwefel deposits (mostly on the floor) and Cryo-Titan ore. Cryo-Titan ONLY generates here.",
+    "The logic + all chances/heights are in Java: worldgen/feature/ThermalCaveFeature.java"
+  ],
+  "type": "per_aspera_ad_astra:thermal_caves",
+  "config": {}
+}

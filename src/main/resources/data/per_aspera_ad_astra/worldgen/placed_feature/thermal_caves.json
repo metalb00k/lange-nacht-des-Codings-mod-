@@ -1,0 +1,5 @@
+{
+  "_comment": "Runs once per chunk (the feature itself loops over the whole chunk).",
+  "feature": "per_aspera_ad_astra:thermal_caves",
+  "placement": []
+}

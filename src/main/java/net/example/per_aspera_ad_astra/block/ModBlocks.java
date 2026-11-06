@@ -103,7 +103,7 @@ public class ModBlocks {
 
     // ---- Custom blocks go here ----
     // Example (needs blockstate, model, texture and lang entry in src/main/resources/assets/per_aspera_ad_astra/):
-    //
+    //m
     // public static final RegistryObject<Block> EXAMPLE_BLOCK = registerBlock("example_block",
     //         () -> new Block(BlockBehaviour.Properties.of()
     //                 .mapColor(MapColor.STONE)
