@@ -27,7 +27,6 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.STAR_FRAGMENT.get());
                         pOutput.accept(Items.DIAMOND);
                         pOutput.accept(ModItems.CRYOORE.get());
-                        pOutput.accept(ModItems.PLATZHALTER.get());
 
                         // Block
                         pOutput.accept(ModBlocks.MOD_PORTAL.get());
