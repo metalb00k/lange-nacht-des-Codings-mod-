@@ -77,3 +77,11 @@ description='''${mod_description}'''
 # stop your mod loading on the server for example.
 #[features.${mod_id}]
 #openGLVersion="[3.2,)"
+
+# GeckoLib is required (players must install it too)
+[[dependencies.${mod_id}]]
+    modId="geckolib"
+    mandatory=true
+    versionRange="[4.8.4,)"
+    ordering="AFTER"
+    side="BOTH"
