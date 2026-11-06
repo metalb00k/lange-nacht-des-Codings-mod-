@@ -27,6 +27,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.STAR_FRAGMENT.get());
                         pOutput.accept(Items.DIAMOND);
                         pOutput.accept(ModItems.CRYOORE.get());
+                        pOutput.accept(ModItems.PLATZHALTER.get());
 
                         // Block
                         pOutput.accept(ModBlocks.MOD_PORTAL.get());
@@ -36,6 +37,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.CRYOTITAN.get());
                         pOutput.accept(ModBlocks.FROSTKRISTALL.get());
                         pOutput.accept(ModBlocks.EISERDE.get());
+                        pOutput.accept(ModBlocks.EISHOLZBRETT.get());
 
                     })
                     .build());

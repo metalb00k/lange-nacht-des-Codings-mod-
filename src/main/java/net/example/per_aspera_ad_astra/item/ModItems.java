@@ -2,6 +2,7 @@ package net.example.per_aspera_ad_astra.item;
 
 import net.example.per_aspera_ad_astra.Per_aspera_ad_astra;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -25,7 +26,10 @@ public class ModItems {
 
     public static final RegistryObject<Item> STAR_FRAGMENT = ITEMS.register("star_fragment",
             () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CRYOORE = ITEMS.register("cryo_titan_erz",
+    public static final RegistryObject<Item> CRYOORE = ITEMS.register("Cryo-Titan Erz",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> PLATZHALTER = ITEMS.register("Cryo-Titan Erz",
             () -> new Item(new Item.Properties()));
 
     // ---- End of items ----
