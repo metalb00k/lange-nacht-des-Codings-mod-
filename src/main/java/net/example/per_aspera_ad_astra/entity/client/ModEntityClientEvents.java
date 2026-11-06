@@ -14,10 +14,12 @@ public class ModEntityClientEvents {
     @SubscribeEvent
     public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(SchneeleopardModel.LAYER_LOCATION, SchneeleopardModel::createBodyLayer);
+        event.registerLayerDefinition(YetiModel.LAYER_LOCATION, YetiModel::createBodyLayer);
     }
 
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntities.SCHNEELEOPARD.get(), SchneeleopardRenderer::new);
+        event.registerEntityRenderer(ModEntities.YETI.get(), YetiRenderer::new);
     }
 }

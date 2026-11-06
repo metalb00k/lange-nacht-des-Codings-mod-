@@ -38,6 +38,14 @@ public class ModEntities {
                             .clientTrackingRange(8)
                             .build("schneeleopard"));
 
+    // Same size as an iron golem. No spawn egg: use /summon per_aspera_ad_astra:yeti
+    public static final RegistryObject<EntityType<YetiEntity>> YETI =
+            ENTITY_TYPES.register("yeti", () ->
+                    EntityType.Builder.of(YetiEntity::new, MobCategory.MONSTER)
+                            .sized(1.4F, 2.7F)
+                            .clientTrackingRange(10)
+                            .build("yeti"));
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
@@ -45,6 +53,7 @@ public class ModEntities {
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event) {
         event.put(SCHNEELEOPARD.get(), SchneeleopardEntity.createAttributes().build());
+        event.put(YETI.get(), YetiEntity.createAttributes().build());
     }
 
     /** Where natural spawns are allowed: on solid ground (snow, stone, ...), like vanilla cats. */
