@@ -16,6 +16,7 @@ public class ModEntityClientEvents {
         event.registerLayerDefinition(SchneeleopardModel.LAYER_LOCATION, SchneeleopardModel::createBodyLayer);
         event.registerLayerDefinition(YetiModel.LAYER_LOCATION, YetiModel::createBodyLayer);
         event.registerLayerDefinition(IceSpiderModel.LAYER_LOCATION, IceSpiderModel::createBodyLayer);
+        event.registerLayerDefinition(IceFoxModel.LAYER_LOCATION, IceFoxModel::createBodyLayer);
     }
 
     @SubscribeEvent
@@ -23,5 +24,6 @@ public class ModEntityClientEvents {
         event.registerEntityRenderer(ModEntities.SCHNEELEOPARD.get(), SchneeleopardRenderer::new);
         event.registerEntityRenderer(ModEntities.YETI.get(), YetiRenderer::new);
         event.registerEntityRenderer(ModEntities.ICE_SPIDER.get(), IceSpiderRenderer::new);
+        event.registerEntityRenderer(ModEntities.ICE_FOX.get(), IceFoxRenderer::new);
     }
 }

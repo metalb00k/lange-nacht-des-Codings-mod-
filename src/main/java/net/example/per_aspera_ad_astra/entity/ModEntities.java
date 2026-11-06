@@ -54,6 +54,14 @@ public class ModEntities {
                             .clientTrackingRange(8)
                             .build("ice_spider"));
 
+    // Same size as a vanilla fox. No spawn egg, no natural spawning: use /summon per_aspera_ad_astra:ice_fox
+    public static final RegistryObject<EntityType<IceFoxEntity>> ICE_FOX =
+            ENTITY_TYPES.register("ice_fox", () ->
+                    EntityType.Builder.of(IceFoxEntity::new, MobCategory.CREATURE)
+                            .sized(0.6F, 0.7F)
+                            .clientTrackingRange(8)
+                            .build("ice_fox"));
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
@@ -63,6 +71,7 @@ public class ModEntities {
         event.put(SCHNEELEOPARD.get(), SchneeleopardEntity.createAttributes().build());
         event.put(YETI.get(), YetiEntity.createAttributes().build());
         event.put(ICE_SPIDER.get(), IceSpiderEntity.createAttributes().build());
+        event.put(ICE_FOX.get(), IceFoxEntity.createAttributes().build());
     }
 
     /** Where natural spawns are allowed: on solid ground (snow, stone, ...), like vanilla cats. */
