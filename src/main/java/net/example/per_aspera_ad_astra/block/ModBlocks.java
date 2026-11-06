@@ -26,20 +26,25 @@ public class ModBlocks {
 
     public static final DeferredRegister<Item> BLOCK_ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, Per_aspera_ad_astra.MOD_ID);
-    public static final RegistryObject<Block> ERZ_BLOCK = registerBlock("erz_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_ORE).noLootTable().noOcclusion().noCollission()));
+
     public static final RegistryObject<Block> MOD_PORTAL = registerBlock("mod_portal",
             () -> new ModPortalBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noLootTable().noOcclusion().noCollission()));
+
     public static final RegistryObject<Block> EISHOLZ = registerBlock("eisholz",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).noLootTable().noOcclusion().noCollission()));
+
     public static final RegistryObject<Block> EISBLAETTER = registerBlock("eisblatt",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES).noLootTable().noOcclusion().noCollission()));
+
     public static final RegistryObject<Block> EISZAPFEN = registerBlock("eiszapfen",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DRIPSTONE_BLOCK).noLootTable().noOcclusion().noCollission()));
+
     public static final RegistryObject<Block> CRYOTITAN = registerBlock("cryo_titan",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK).noLootTable().noOcclusion().noCollission()));
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.ANCIENT_DEBRIS).noLootTable().noOcclusion().noCollission()));
+
     public static final RegistryObject<Block> FROSTKRISTALL = registerBlock("frostkristall",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.BLUE_ICE).noLootTable().noOcclusion().noCollission()));
+
     public static final RegistryObject<Block> EISERDE = registerBlock("eiserde",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT).noLootTable().noOcclusion().noCollission()));
 
