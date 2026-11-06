@@ -1,0 +1,12 @@
+{
+  "_comment": "spacing = average distance between nests in chunks (32 chunks = 512 blocks), separation = minimum distance. Lower = more nests.",
+  "structures": [
+    { "structure": "per_aspera_ad_astra:yeti_nest", "weight": 1 }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 32,
+    "separation": 12,
+    "salt": 198273645
+  }
+}

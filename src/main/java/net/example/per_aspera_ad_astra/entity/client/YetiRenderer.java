@@ -22,6 +22,15 @@ public class YetiRenderer extends MobRenderer<YetiEntity, YetiModel> {
         return TEXTURE;
     }
 
+    /** The miniboss (Yeti-Anführer from the nest) is drawn bigger. */
+    @Override
+    protected void scale(YetiEntity entity, PoseStack poseStack, float partialTick) {
+        super.scale(entity, poseStack, partialTick);
+        if (entity.isMiniboss()) {
+            poseStack.scale(YetiEntity.BOSS_SCALE, YetiEntity.BOSS_SCALE, YetiEntity.BOSS_SCALE);
+        }
+    }
+
     @Override
     protected void setupRotations(YetiEntity entity, PoseStack poseStack, float ageInTicks,
                                   float rotationYaw, float partialTicks) {

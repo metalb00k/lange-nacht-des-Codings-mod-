@@ -1,6 +1,18 @@
 package net.example.per_aspera_ad_astra.entity;
 
+import net.example.per_aspera_ad_astra.Per_aspera_ad_astra;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerBossEvent;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.BossEvent;
+import net.minecraft.world.entity.EntityDimensions;
+import net.minecraft.world.entity.Pose;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
@@ -39,6 +51,115 @@ public class YetiEntity extends IronGolem {
 
     public YetiEntity(EntityType<? extends IronGolem> type, Level level) {
         super(type, level);
+    }
+
+    // =====================================================================
+    // Miniboss ("Yeti-Anführer"): the one that lives in the Yeti nest structure.
+    // It is spawned by the nest (structures/yeti_nest.nbt has the entity with {Miniboss:1b}).
+    // Test it with: /summon per_aspera_ad_astra:yeti ~ ~ ~ {Miniboss:1b}
+    // =====================================================================
+    public static final double BOSS_HEALTH = 200.0D;   // normal yeti: 100
+    public static final double BOSS_DAMAGE = 22.0D;    // normal yeti: 15
+    public static final float BOSS_SCALE = 1.35F;      // size compared to a normal yeti (model + hitbox)
+
+    private static final EntityDataAccessor<Boolean> MINIBOSS =
+            SynchedEntityData.defineId(YetiEntity.class, EntityDataSerializers.BOOLEAN);
+    private final ServerBossEvent bossBar = (ServerBossEvent) new ServerBossEvent(
+            Component.translatable("entity.per_aspera_ad_astra.yeti_boss"),
+            BossEvent.BossBarColor.RED, BossEvent.BossBarOverlay.NOTCHED_10).setDarkenScreen(true);
+
+    @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(MINIBOSS, false);
+    }
+
+    public boolean isMiniboss() {
+        return this.entityData.get(MINIBOSS);
+    }
+
+    public void setMiniboss(boolean miniboss) {
+        this.entityData.set(MINIBOSS, miniboss);
+        if (miniboss) {
+            this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(BOSS_HEALTH);
+            this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(BOSS_DAMAGE);
+            this.xpReward = 100;
+            this.setPersistenceRequired();
+        }
+        this.refreshDimensions();
+    }
+
+    @Override
+    public void addAdditionalSaveData(CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
+        tag.putBoolean("Miniboss", this.isMiniboss());
+    }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag tag) {
+        boolean firstLoad = !tag.contains("Health"); // freshly spawned from the structure -> start with full boss health
+        super.readAdditionalSaveData(tag);
+        if (tag.getBoolean("Miniboss")) {
+            this.setMiniboss(true);
+            if (firstLoad) {
+                this.setHealth(this.getMaxHealth());
+            }
+        }
+        if (this.hasCustomName()) {
+            this.bossBar.setName(this.getDisplayName());
+        }
+    }
+
+    @Override
+    public void onSyncedDataUpdated(EntityDataAccessor<?> key) {
+        super.onSyncedDataUpdated(key);
+        if (MINIBOSS.equals(key)) {
+            this.refreshDimensions(); // bigger hitbox on the client too
+        }
+    }
+
+    /** The miniboss has a bigger hitbox. */
+    @Override
+    public EntityDimensions getDimensions(Pose pose) {
+        EntityDimensions size = super.getDimensions(pose);
+        return this.isMiniboss() ? size.scale(BOSS_SCALE) : size;
+    }
+
+    /** Boss bar: updated every tick, shown to players who can see the miniboss. */
+    @Override
+    protected void customServerAiStep() {
+        super.customServerAiStep();
+        this.bossBar.setProgress(this.getHealth() / this.getMaxHealth());
+    }
+
+    @Override
+    public void startSeenByPlayer(ServerPlayer player) {
+        super.startSeenByPlayer(player);
+        if (this.isMiniboss()) {
+            this.bossBar.addPlayer(player);
+        }
+    }
+
+    @Override
+    public void stopSeenByPlayer(ServerPlayer player) {
+        super.stopSeenByPlayer(player);
+        this.bossBar.removePlayer(player);
+    }
+
+    /** The miniboss has its own loot: loot_tables/entities/yeti_boss.json */
+    @Override
+    protected ResourceLocation getDefaultLootTable() {
+        return this.isMiniboss()
+                ? new ResourceLocation(Per_aspera_ad_astra.MOD_ID, "entities/yeti_boss")
+                : super.getDefaultLootTable();
+    }
+
+    /** The miniboss can't be knocked back by normal hits. */
+    @Override
+    public void knockback(double strength, double x, double z) {
+        if (!this.isMiniboss()) {
+            super.knockback(strength, x, z);
+        }
     }
 
     /** Same as the iron golem: 100 health, 15 damage, slow. */

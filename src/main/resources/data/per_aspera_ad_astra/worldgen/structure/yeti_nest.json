@@ -1,0 +1,18 @@
+{
+  "_comment": [
+    "Yeti nest: a round half-sunken den on land (Astra Fields) with a loot chest.",
+    "Every nest spawns exactly ONE Yeti-Anfuehrer (miniboss) when it is generated - it is stored in structures/yeti_nest.nbt as an entity.",
+    "Where: tags/worldgen/biome/has_yeti_nest.json. How often: worldgen/structure_set/yeti_nest.json."
+  ],
+  "type": "minecraft:jigsaw",
+  "biomes": "#per_aspera_ad_astra:has_yeti_nest",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "beard_thin",
+  "start_pool": "per_aspera_ad_astra:yeti_nest/start",
+  "size": 1,
+  "start_height": { "absolute": -1 },
+  "project_start_to_heightmap": "WORLD_SURFACE_WG",
+  "max_distance_from_center": 80,
+  "use_expansion_hack": false
+}

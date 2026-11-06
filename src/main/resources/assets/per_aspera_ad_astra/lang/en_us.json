@@ -49,5 +49,6 @@
   "biome.per_aspera_ad_astra.astra_ocean": "Astra Ocean",
   "entity.per_aspera_ad_astra.schneeleopard": "Schneeleopard",
   "entity.per_aspera_ad_astra.yeti": "Yeti",
+  "entity.per_aspera_ad_astra.yeti_boss": "Yeti-Anführer",
   "item.per_aspera_ad_astra.schneeleopard_spawn_egg": "Schneeleopard-Spawn-Ei"
 }
