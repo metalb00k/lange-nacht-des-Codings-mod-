@@ -1,7 +1,7 @@
 {
   "_comment": [
     "WHAT is generated: veins of Erz Block that replace stone and deepslate.",
-    ">>> To use another block from our mod, change 'Name' below (e.g. per_aspera_ad_astra:eisblock). <<<",
+    ">>> To use another block from our mod, change 'Name' below (e.g. per_aspera_ad_astra:cryo_titan). <<<",
     "'size' = how many blocks one vein has (vanilla iron = 9, diamond = 8).",
     "How often / at which height it appears is set in worldgen/placed_feature/erz_ore.json."
   ],

@@ -1,6 +1,6 @@
 {
   "_comment": [
-    "WHAT is generated: big patches of Eisblock that replace grass and dirt near the surface.",
+    "WHAT is generated: big patches of Frostkristall that replace grass and dirt near the surface.",
     ">>> To use another block from our mod, change 'Name' below. <<<",
     "'target' = which blocks get replaced. #minecraft:dirt includes grass blocks, dirt, podzol, etc.",
     "Use minecraft:base_stone_overworld instead to replace stone.",
@@ -13,7 +13,7 @@
     "targets": [
       {
         "target": { "predicate_type": "minecraft:tag_match", "tag": "minecraft:dirt" },
-        "state": { "Name": "per_aspera_ad_astra:eisblock" }
+        "state": { "Name": "per_aspera_ad_astra:frostkristall" }
       }
     ]
   }

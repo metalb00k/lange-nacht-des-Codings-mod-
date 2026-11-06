@@ -11,7 +11,7 @@
     "  1. Make a configured_feature (WHAT block + HOW it is shaped)   -> worldgen/configured_feature/",
     "  2. Make a placed_feature (HOW OFTEN + WHERE / at which height) -> worldgen/placed_feature/",
     "  3. Add the placed_feature's id to the right list in 'features' below.",
-    "Examples already done: erz_ore (Erz Block underground) and eis_patch (Eisblock on the surface)."
+    "Examples already done: erz_ore (Erz Block underground) and eis_patch (Frostkristall on the surface)."
   ],
 
   "has_precipitation": true,
