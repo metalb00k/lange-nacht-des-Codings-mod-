@@ -35,6 +35,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.EISZAPFEN.get());
                         pOutput.accept(ModBlocks.CRYOTITAN.get());
                         pOutput.accept(ModBlocks.FROSTKRISTALL.get());
+                        pOutput.accept(ModBlocks.EISERDE.get());
                     })
                     .build());
 
