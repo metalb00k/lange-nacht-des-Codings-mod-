@@ -1,0 +1,46 @@
+{
+  "_comment": [
+    "The Eis tree: trunk of Eisholz, spruce-shaped (pointy) crown of Eisblatt.",
+    "trunk_placer:  base_height = minimum trunk height, height_rand_a/b = random extra height.",
+    "foliage_placer: radius = how wide the crown is, offset = how far it starts below the top,",
+    "                trunk_height = how many trunk blocks stay bare at the top.",
+    "For a round oak-like crown use: { \"type\": \"minecraft:blob_foliage_placer\", \"radius\": 2, \"offset\": 0, \"height\": 3 }",
+    "How many trees spawn is set in worldgen/placed_feature/eis_tree.json."
+  ],
+  "type": "minecraft:tree",
+  "config": {
+    "trunk_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": { "Name": "per_aspera_ad_astra:eisholz" }
+    },
+    "foliage_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": { "Name": "per_aspera_ad_astra:eisblatt" }
+    },
+    "dirt_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": { "Name": "minecraft:dirt" }
+    },
+    "trunk_placer": {
+      "type": "minecraft:straight_trunk_placer",
+      "base_height": 6,
+      "height_rand_a": 2,
+      "height_rand_b": 1
+    },
+    "foliage_placer": {
+      "type": "minecraft:spruce_foliage_placer",
+      "radius": 2,
+      "offset": 1,
+      "trunk_height": 1
+    },
+    "minimum_size": {
+      "type": "minecraft:two_layers_feature_size",
+      "limit": 2,
+      "lower_size": 0,
+      "upper_size": 2
+    },
+    "decorators": [],
+    "ignore_vines": true,
+    "force_dirt": false
+  }
+}
