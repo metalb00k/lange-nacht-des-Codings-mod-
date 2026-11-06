@@ -3,8 +3,9 @@
   "pools": [
     {
       "rolls": 1,
+      "bonus_rolls": 0,
       "entries": [
-        { "type": "minecraft:item", "name": "per_aspera_ad_astra:cryo_titan" }
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:cryo_titan_erz" }
       ],
       "conditions": [
         { "condition": "minecraft:survives_explosion" }
