@@ -4,7 +4,13 @@ import net.example.per_aspera_ad_astra.Per_aspera_ad_astra;
 import net.example.per_aspera_ad_astra.item.custom.SpacesuitChestplateItem;
 import net.example.per_aspera_ad_astra.worldgen.dimension.ModDimensions;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageType;
+import net.minecraftforge.event.entity.living.LivingDrownEvent;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -21,6 +27,31 @@ import net.minecraftforge.fml.common.Mod;
  */
 @Mod.EventBusSubscriber(modid = Per_aspera_ad_astra.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class OxygenEvents {
+
+    /**
+     * Custom damage type for suffocating in Astra -> own death message.
+     * Defined in data/per_aspera_ad_astra/damage_type/no_oxygen.json,
+     * message text in lang/en_us.json ("death.attack.per_aspera_ad_astra.no_oxygen").
+     */
+    public static final ResourceKey<DamageType> NO_OXYGEN = ResourceKey.create(Registries.DAMAGE_TYPE,
+            new ResourceLocation(Per_aspera_ad_astra.MOD_ID, "no_oxygen"));
+
+    /**
+     * When a player in Astra runs out of air, replace the vanilla drowning damage ("X drowned")
+     * with our NO_OXYGEN damage (same amount: 2 = one heart per hit).
+     */
+    @SubscribeEvent
+    public static void onDrown(LivingDrownEvent event) {
+        if (!(event.getEntity() instanceof Player player) || !needsOxygen(player)
+                || player.level().isClientSide || !event.isDrowning()) {
+            return;
+        }
+        float damage = event.getDamageAmount();
+        event.setDamageAmount(0); // vanilla still resets the air bar + shows bubbles, but deals no damage
+        DamageSource noOxygen = new DamageSource(player.level().registryAccess()
+                .registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(NO_OXYGEN));
+        player.hurt(noOxygen, damage);
+    }
 
     private static boolean needsOxygen(Player player) {
         return player.level().dimension() == ModDimensions.ASTRA_DIM_LEVEL_KEY

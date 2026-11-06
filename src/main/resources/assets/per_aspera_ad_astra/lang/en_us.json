@@ -23,6 +23,8 @@
   "message.per_aspera_ad_astra.no_tank": "Du trägst keinen Raumanzug mit Sauerstofftank!",
   "message.per_aspera_ad_astra.tank_full": "Der Sauerstofftank ist schon voll",
   "message.per_aspera_ad_astra.refilled": "Sauerstoff aufgefüllt: %s%%",
+  "death.attack.per_aspera_ad_astra.no_oxygen": "%1$s hat vergessen, dass es auf Astra keine Luft gibt",
+  "death.attack.per_aspera_ad_astra.no_oxygen.player": "%1$s ist auf der Flucht vor %2$s der Sauerstoff ausgegangen",
   "block.per_aspera_ad_astra.erz_block": "Erz Block",
   "block.per_aspera_ad_astra.mod_portal": "Astra Portal",
   "block.per_aspera_ad_astra.eisholz": "Eisholz",
