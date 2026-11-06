@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": ["I I", "I I"],
+  "key": {
+    "I": { "item": "per_aspera_ad_astra:cryo_titan_ingot" }
+  },
+  "result": { "item": "per_aspera_ad_astra:cryo_titan_boots", "count": 1 }
+}

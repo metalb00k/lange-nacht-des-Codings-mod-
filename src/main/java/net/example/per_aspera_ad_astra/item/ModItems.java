@@ -1,7 +1,13 @@
 package net.example.per_aspera_ad_astra.item;
 
 import net.example.per_aspera_ad_astra.Per_aspera_ad_astra;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.PickaxeItem;
+import net.minecraft.world.item.ShovelItem;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -32,6 +38,29 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> PLATZHALTER = ITEMS.register("platzhalter",
             () -> new Item(new Item.Properties()));
+
+    // ---- Cryo-Titan weapons & tools (stats: see ModToolTiers) ----
+    // Numbers = extra damage and attack speed, same as the vanilla Netherite versions.
+    public static final RegistryObject<Item> CRYO_TITAN_SWORD = ITEMS.register("cryo_titan_sword",
+            () -> new SwordItem(ModToolTiers.CRYO_TITAN, 3, -2.4f, new Item.Properties().fireResistant()));
+    public static final RegistryObject<Item> CRYO_TITAN_PICKAXE = ITEMS.register("cryo_titan_pickaxe",
+            () -> new PickaxeItem(ModToolTiers.CRYO_TITAN, 1, -2.8f, new Item.Properties().fireResistant()));
+    public static final RegistryObject<Item> CRYO_TITAN_AXE = ITEMS.register("cryo_titan_axe",
+            () -> new AxeItem(ModToolTiers.CRYO_TITAN, 5.0f, -3.0f, new Item.Properties().fireResistant()));
+    public static final RegistryObject<Item> CRYO_TITAN_SHOVEL = ITEMS.register("cryo_titan_shovel",
+            () -> new ShovelItem(ModToolTiers.CRYO_TITAN, 1.5f, -3.0f, new Item.Properties().fireResistant()));
+    public static final RegistryObject<Item> CRYO_TITAN_HOE = ITEMS.register("cryo_titan_hoe",
+            () -> new HoeItem(ModToolTiers.CRYO_TITAN, -4, 0.0f, new Item.Properties().fireResistant()));
+
+    // ---- Cryo-Titan armor (stats: see ModArmorMaterials) ----
+    public static final RegistryObject<Item> CRYO_TITAN_HELMET = ITEMS.register("cryo_titan_helmet",
+            () -> new ArmorItem(ModArmorMaterials.CRYO_TITAN, ArmorItem.Type.HELMET, new Item.Properties().fireResistant()));
+    public static final RegistryObject<Item> CRYO_TITAN_CHESTPLATE = ITEMS.register("cryo_titan_chestplate",
+            () -> new ArmorItem(ModArmorMaterials.CRYO_TITAN, ArmorItem.Type.CHESTPLATE, new Item.Properties().fireResistant()));
+    public static final RegistryObject<Item> CRYO_TITAN_LEGGINGS = ITEMS.register("cryo_titan_leggings",
+            () -> new ArmorItem(ModArmorMaterials.CRYO_TITAN, ArmorItem.Type.LEGGINGS, new Item.Properties().fireResistant()));
+    public static final RegistryObject<Item> CRYO_TITAN_BOOTS = ITEMS.register("cryo_titan_boots",
+            () -> new ArmorItem(ModArmorMaterials.CRYO_TITAN, ArmorItem.Type.BOOTS, new Item.Properties().fireResistant()));
 
     // ---- End of items ----
 

@@ -29,6 +29,16 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.CRYOORE.get());
                         pOutput.accept(ModItems.PLATZHALTER.get());
                         pOutput.accept(ModItems.CRYOTITAN_INGOT.get());
+                        // Cryo-Titan weapons, tools & armor
+                        pOutput.accept(ModItems.CRYO_TITAN_SWORD.get());
+                        pOutput.accept(ModItems.CRYO_TITAN_PICKAXE.get());
+                        pOutput.accept(ModItems.CRYO_TITAN_AXE.get());
+                        pOutput.accept(ModItems.CRYO_TITAN_SHOVEL.get());
+                        pOutput.accept(ModItems.CRYO_TITAN_HOE.get());
+                        pOutput.accept(ModItems.CRYO_TITAN_HELMET.get());
+                        pOutput.accept(ModItems.CRYO_TITAN_CHESTPLATE.get());
+                        pOutput.accept(ModItems.CRYO_TITAN_LEGGINGS.get());
+                        pOutput.accept(ModItems.CRYO_TITAN_BOOTS.get());
                         // Block
                         pOutput.accept(ModBlocks.MOD_PORTAL.get());
                         pOutput.accept(ModBlocks.EISHOLZ.get());
