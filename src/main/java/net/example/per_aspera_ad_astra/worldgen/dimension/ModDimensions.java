@@ -20,6 +20,13 @@ import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
 import java.util.List;
 import java.util.OptionalLong;
 
+/**
+ * NOTE: The dimension and its biomes that are actually used in game come from the JSON files in
+ *   src/main/resources/data/per_aspera_ad_astra/dimension/astra_dim.json
+ *   src/main/resources/data/per_aspera_ad_astra/worldgen/biome/astra_biome.json
+ * Edit those to change the dimension. The bootstrap methods below are only used by a data generator (not set up).
+ * The keys (ASTRA_DIM_LEVEL_KEY etc.) ARE used by the portal.
+ */
 public class ModDimensions {
     public static final ResourceKey<LevelStem> ASTRA_DIM_KEY = ResourceKey.create(Registries.LEVEL_STEM,
             new ResourceLocation(Per_aspera_ad_astra.MOD_ID, "astra_dim"));

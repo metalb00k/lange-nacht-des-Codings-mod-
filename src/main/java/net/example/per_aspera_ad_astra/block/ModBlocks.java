@@ -30,8 +30,12 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(5f).sound(SoundType.METAL)));
     public static final RegistryObject<Block> MOD_PORTAL = registerBlock("mod_portal",
             () -> new ModPortalBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noLootTable().noOcclusion().noCollission()));
-
+    public static final RegistryObject<Block> ALIEN_ICE = registerBlock("eisblock",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(5f).sound(SoundType.GLASS)));
     // ---- Custom blocks go here ----
+    // Want a block to generate in the Astra dimension? Register it here first, then use its id
+    // (e.g. per_aspera_ad_astra:eisblock) in src/main/resources/data/per_aspera_ad_astra/worldgen/configured_feature/
+    // and add the feature to worldgen/biome/astra_biome.json (see the comments in those files).
     // Example (needs blockstate, model, texture and lang entry in src/main/resources/assets/per_aspera_ad_astra/):
     //
     // public static final RegistryObject<Block> EXAMPLE_BLOCK = registerBlock("example_block",
