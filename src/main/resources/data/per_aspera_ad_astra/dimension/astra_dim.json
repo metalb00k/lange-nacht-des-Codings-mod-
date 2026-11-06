@@ -11,7 +11,7 @@
   "type": "per_aspera_ad_astra:astra_dim_type",
   "generator": {
     "type": "minecraft:noise",
-    "settings": "minecraft:amplified",
+    "settings": "per_aspera_ad_astra:astra",
     "biome_source": {
       "type": "minecraft:multi_noise",
       "biomes": [

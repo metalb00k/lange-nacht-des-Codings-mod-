@@ -72,7 +72,9 @@
       "minecraft:ore_iron_upper",
       "minecraft:ore_iron_middle",
       "minecraft:ore_diamond",
-      "per_aspera_ad_astra:erz_ore"
+      "per_aspera_ad_astra:eiszapfen_blob",
+      "per_aspera_ad_astra:erz_ore",
+      "per_aspera_ad_astra:cryo_titan_ore"
     ],
     [],
     [],
