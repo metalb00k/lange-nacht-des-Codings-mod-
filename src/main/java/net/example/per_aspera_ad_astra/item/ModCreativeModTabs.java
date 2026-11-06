@@ -69,6 +69,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.TITANBLOCK.get());
                         pOutput.accept(ModBlocks.METHANEIS.get());
                         pOutput.accept(ModBlocks.SCHWEFEL.get());
+                        pOutput.accept(ModBlocks.THERMISCHESGESTEIN.get());
 
 
                     })

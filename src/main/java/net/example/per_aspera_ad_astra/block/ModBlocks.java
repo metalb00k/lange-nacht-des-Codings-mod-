@@ -94,6 +94,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> SCHWEFEL = registerBlock("schwefel",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK)));
 
+    //Thermisches Gestein
+    public static final RegistryObject<Block> THERMISCHESGESTEIN = registerBlock("thermisches_gestein",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.MAGMA_BLOCK)));
+
+
 
 
     // ---- Custom blocks go here ----
