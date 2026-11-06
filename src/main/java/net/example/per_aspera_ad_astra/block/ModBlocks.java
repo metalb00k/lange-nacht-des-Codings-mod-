@@ -82,6 +82,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> EISBLOCK = registerBlock("eisblock",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.PACKED_ICE)));
 
+    //Titan-Block
+    public static final RegistryObject<Block> TITANBLOCK = registerBlock("titanblock",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK)));
+
 
     // ---- Custom blocks go here ----
     // Example (needs blockstate, model, texture and lang entry in src/main/resources/assets/per_aspera_ad_astra/):

@@ -66,6 +66,8 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.EISZIEGELSTEIN.get());
                         pOutput.accept(ModBlocks.EISZIEGELSTEINSTUFEN.get());
                         pOutput.accept(ModBlocks.EISBLOCK.get());
+                        pOutput.accept(ModBlocks.TITANBLOCK.get());
+
 
                     })
                     .build());
