@@ -20,6 +20,10 @@ public class ModFeatures {
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> FREEZE_EISWASSER =
             FEATURES.register("freeze_eiswasser", () -> new FreezeEiswasserFeature(NoneFeatureConfiguration.CODEC));
 
+    /** Lines deep caves with Thermisches Gestein, Schwefel and Cryo-Titan ore. */
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> THERMAL_CAVES =
+            FEATURES.register("thermal_caves", () -> new ThermalCaveFeature(NoneFeatureConfiguration.CODEC));
+
     public static void register(IEventBus eventBus) {
         FEATURES.register(eventBus);
     }

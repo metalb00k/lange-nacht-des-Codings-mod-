@@ -4,14 +4,14 @@ import com.mojang.serialization.Codec;
 import net.example.per_aspera_ad_astra.fluid.ModFluids;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.Blocks;
+import net.example.per_aspera_ad_astra.block.ModBlocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 /**
- * Covers every Eiswasser surface in a chunk with ONE layer of ice
+ * Covers every Eiswasser surface in a chunk with ONE layer of Methaneis
  * (like vanilla "freeze_top_layer", which only works on normal water).
  *
  * Used by worldgen/configured_feature/freeze_eiswasser.json -> placed in the biome's last feature step.
@@ -39,7 +39,7 @@ public class FreezeEiswasserFeature extends Feature<NoneFeatureConfiguration> {
 
                 if (level.getFluidState(surface).is(ModFluids.SOURCE_EISWASSER.get())
                         && level.isEmptyBlock(surface.above())) {
-                    level.setBlock(surface, Blocks.ICE.defaultBlockState(), 2);
+                    level.setBlock(surface, ModBlocks.METHANEIS.get().defaultBlockState(), 2);
                     placedAny = true;
                 }
             }
