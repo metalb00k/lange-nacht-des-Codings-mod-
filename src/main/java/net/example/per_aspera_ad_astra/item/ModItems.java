@@ -93,7 +93,7 @@ public class ModItems {
     public static final RegistryObject<Item> SPACESUIT_LEGGINGS = ITEMS.register("spacesuit_leggings",
             () -> new ArmorItem(ModArmorMaterials.SPACESUIT, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> SPACESUIT_BOOTS = ITEMS.register("spacesuit_boots",
-            () -> new ArmorItem(ModArmorMaterials.SPACESUIT, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new net.example.per_aspera_ad_astra.item.custom.SpacesuitBootsItem(ModArmorMaterials.SPACESUIT, new Item.Properties()));
     // Right-click to refill the spacesuit's oxygen tank
     public static final RegistryObject<Item> OXYGEN_CANISTER = ITEMS.register("oxygen_canister",
             () -> new OxygenCanisterItem(new Item.Properties().stacksTo(16)));

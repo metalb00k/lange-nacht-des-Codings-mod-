@@ -41,6 +41,7 @@
   "item.per_aspera_ad_astra.liver_of_frost": "Liver of Frost",
   "item.per_aspera_ad_astra.freezer": "Freezer",
   "tooltip.per_aspera_ad_astra.upgrade_heater": "Upgrade: Heater (schützt vor Eiswasser)",
+  "tooltip.per_aspera_ad_astra.upgrade_ice_skates": "Upgrade: Schlittschuhe (schneller auf Eis, Methaneis bricht nicht)",
   "tooltip.per_aspera_ad_astra.upgrade_freezer": "Upgrade: Freezer (Eis schießen mit V)",
   "key.categories.per_aspera_ad_astra": "Per Aspera Ad Astra",
   "key.per_aspera_ad_astra.shoot_ice": "Eis schießen (Freezer-Raumanzug)",

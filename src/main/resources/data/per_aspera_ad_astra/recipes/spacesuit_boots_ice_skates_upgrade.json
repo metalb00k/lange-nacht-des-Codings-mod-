@@ -1,0 +1,13 @@
+{
+  "_comment": "Spacesuit boots + 3 iron ingots -> ice skates (faster on ice, Methaneis doesn't crack). See recipe/SpacesuitUpgradeRecipe.",
+  "type": "per_aspera_ad_astra:spacesuit_upgrade",
+  "category": "equipment",
+  "upgrade": "ice_skates",
+  "ingredients": [
+    { "item": "per_aspera_ad_astra:spacesuit_boots" },
+    { "item": "minecraft:iron_ingot" },
+    { "item": "minecraft:iron_ingot" },
+    { "item": "minecraft:iron_ingot" }
+  ],
+  "result": { "item": "per_aspera_ad_astra:spacesuit_boots", "count": 1 }
+}

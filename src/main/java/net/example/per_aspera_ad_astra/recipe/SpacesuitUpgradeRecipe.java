@@ -1,7 +1,7 @@
 package net.example.per_aspera_ad_astra.recipe;
 
 import com.google.gson.JsonObject;
-import net.example.per_aspera_ad_astra.item.custom.SpacesuitChestplateItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
@@ -16,11 +16,11 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Shapeless recipe that upgrades the spacesuit chestplate WITHOUT losing its oxygen:
- * the chestplate from the grid is copied and gets the upgrade tag added.
+ * Shapeless recipe that upgrades a spacesuit piece WITHOUT losing its oxygen/enchantments:
+ * the piece from the grid (same item as the result) is copied and gets the upgrade tag added.
  *
  * JSON = a normal "minecraft:crafting_shapeless" recipe plus
- *   "upgrade":  "heater" or "freezer"      (the tag that gets added)
+ *   "upgrade":  "heater", "freezer" or "ice_skates"   (the tag that gets added)
  *   "requires": "heater"                   (optional: the chestplate must already have this upgrade)
  */
 public class SpacesuitUpgradeRecipe extends ShapelessRecipe {
@@ -34,14 +34,20 @@ public class SpacesuitUpgradeRecipe extends ShapelessRecipe {
         this.requires = requires;
     }
 
-    private static ItemStack findChestplate(CraftingContainer grid) {
+    /** The piece being upgraded = the stack in the grid that is the same item as the result. */
+    private ItemStack findBase(CraftingContainer grid) {
+        Item resultItem = getResultItem(RegistryAccess.EMPTY).getItem();
         for (int i = 0; i < grid.getContainerSize(); i++) {
             ItemStack stack = grid.getItem(i);
-            if (stack.getItem() instanceof SpacesuitChestplateItem) {
+            if (stack.is(resultItem)) {
                 return stack;
             }
         }
         return ItemStack.EMPTY;
+    }
+
+    private static boolean hasUpgrade(ItemStack stack, String upgrade) {
+        return stack.hasTag() && stack.getTag().getBoolean(upgrade);
     }
 
     @Override
@@ -49,17 +55,17 @@ public class SpacesuitUpgradeRecipe extends ShapelessRecipe {
         if (!super.matches(grid, level)) {
             return false;
         }
-        ItemStack chest = findChestplate(grid);
-        return !chest.isEmpty()
-                && !SpacesuitChestplateItem.hasUpgrade(chest, upgrade)                    // not twice
-                && (requires == null || SpacesuitChestplateItem.hasUpgrade(chest, requires));
+        ItemStack base = findBase(grid);
+        return !base.isEmpty()
+                && !hasUpgrade(base, upgrade)                                // not twice
+                && (requires == null || hasUpgrade(base, requires));
     }
 
     @Override
     public ItemStack assemble(CraftingContainer grid, RegistryAccess registryAccess) {
-        ItemStack result = findChestplate(grid).copy(); // keeps oxygen, enchantments, damage, ...
+        ItemStack result = findBase(grid).copy(); // keeps oxygen, enchantments, damage, ...
         result.setCount(1);
-        SpacesuitChestplateItem.addUpgrade(result, upgrade);
+        result.getOrCreateTag().putBoolean(upgrade, true);
         return result;
     }
 

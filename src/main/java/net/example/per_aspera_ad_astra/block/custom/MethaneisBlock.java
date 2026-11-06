@@ -4,6 +4,7 @@ import net.example.per_aspera_ad_astra.block.ModBlocks;
 import net.example.per_aspera_ad_astra.fluid.ModFluids;
 import net.minecraft.core.BlockPos;
 import net.example.per_aspera_ad_astra.event.ModAdvancements;
+import net.example.per_aspera_ad_astra.item.custom.SpacesuitBootsItem;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
@@ -28,7 +29,8 @@ public class MethaneisBlock extends Block {
 
     @Override
     public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
-        if (!level.isClientSide && entity instanceof LivingEntity
+        if (!level.isClientSide && entity instanceof LivingEntity living
+                && !SpacesuitBootsItem.wearsSkates(living) // ice skates spread the weight: no cracking
                 && !level.getBlockTicks().hasScheduledTick(pos, this)) {
             level.scheduleTick(pos, this, BREAK_DELAY_TICKS);
         }
@@ -40,7 +42,7 @@ public class MethaneisBlock extends Block {
         // Only break if someone is still standing on it after the 2 seconds
         AABB top = new AABB(pos.getX(), pos.getY() + 1.0, pos.getZ(),
                 pos.getX() + 1.0, pos.getY() + 1.25, pos.getZ() + 1.0);
-        var standing = level.getEntitiesOfClass(LivingEntity.class, top, e -> !e.isSpectator());
+        var standing = level.getEntitiesOfClass(LivingEntity.class, top, e -> !e.isSpectator() && !SpacesuitBootsItem.wearsSkates(e));
         if (standing.isEmpty()) {
             return;
         }
