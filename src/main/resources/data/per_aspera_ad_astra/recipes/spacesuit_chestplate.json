@@ -1,0 +1,12 @@
+{
+  "_comment": "Chestplate with oxygen tank: iron + wool, redstone for the oxygen control.",
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": ["W W", "IRI", "IWI"],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "W": { "tag": "minecraft:wool" },
+    "R": { "item": "minecraft:redstone" }
+  },
+  "result": { "item": "per_aspera_ad_astra:spacesuit_chestplate", "count": 1 }
+}

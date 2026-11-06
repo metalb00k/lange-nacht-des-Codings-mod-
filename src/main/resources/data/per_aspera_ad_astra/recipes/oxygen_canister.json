@@ -1,0 +1,12 @@
+{
+  "_comment": "Oxygen canister: iron + glass, filled with leaves (plants make oxygen!). Any leaves work, incl. Eisblatt. Makes 2.",
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [" I ", "GLG", " I "],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "G": { "item": "minecraft:glass" },
+    "L": { "tag": "minecraft:leaves" }
+  },
+  "result": { "item": "per_aspera_ad_astra:oxygen_canister", "count": 2 }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    { "item": "per_aspera_ad_astra:eisholz" }
+  ],
+  "result": { "item": "per_aspera_ad_astra:eisholzbrett", "count": 4 }
+}
