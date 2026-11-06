@@ -6,6 +6,7 @@
     "  - dry land top layer + a few layers below: Eiserde",
     "  - ground under water (lakes/ocean floor): Frostkristall",
     "  - bedrock at the bottom (Y 0-5)",
+    "  - seas, lakes and underground water: Eiswasser ('default_fluid'), frozen on top by the freeze_eiswasser feature",
     "  - everything else: 'default_block' (stone)",
     "To change the blocks, edit the 'Name' values in surface_rule / default_block.",
     "Ores and patches (Erz, Cryo-Titan, Eiszapfen, Frostkristall) are in worldgen/configured_feature + the biome file.",
@@ -16,7 +17,7 @@
     "Name": "minecraft:stone"
   },
   "default_fluid": {
-    "Name": "minecraft:water",
+    "Name": "per_aspera_ad_astra:eiswasser",
     "Properties": {
       "level": "0"
     }

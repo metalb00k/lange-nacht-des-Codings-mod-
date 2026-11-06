@@ -1,0 +1,5 @@
+{
+  "_comment": "Runs once per chunk (no placement modifiers needed, the feature loops over the whole chunk itself).",
+  "feature": "per_aspera_ad_astra:freeze_eiswasser",
+  "placement": []
+}

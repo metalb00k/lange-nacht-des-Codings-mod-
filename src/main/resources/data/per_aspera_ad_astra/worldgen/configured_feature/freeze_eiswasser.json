@@ -1,0 +1,5 @@
+{
+  "_comment": "Thin ice layer on all Eiswasser surfaces. The logic is in Java: worldgen/feature/FreezeEiswasserFeature.java",
+  "type": "per_aspera_ad_astra:freeze_eiswasser",
+  "config": {}
+}

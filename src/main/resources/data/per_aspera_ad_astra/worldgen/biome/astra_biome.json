@@ -83,7 +83,8 @@
       "per_aspera_ad_astra:eis_patch"
     ],
     [
-      "minecraft:freeze_top_layer"
+      "minecraft:freeze_top_layer",
+      "per_aspera_ad_astra:freeze_eiswasser"
     ]
   ],
 

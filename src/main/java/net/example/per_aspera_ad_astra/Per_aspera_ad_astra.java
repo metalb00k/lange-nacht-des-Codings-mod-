@@ -54,6 +54,7 @@ public class Per_aspera_ad_astra
         ModFluidTypes.register(modEventBus);
         ModFluids.register(modEventBus);
         ModCreativeModTabs.register(modEventBus);
+        net.example.per_aspera_ad_astra.worldgen.feature.ModFeatures.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
