@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "per_aspera_ad_astra:item/cryoore"
+    "layer0": "per_aspera_ad_astra:item/cryo_titan_erz"
   }
 }
