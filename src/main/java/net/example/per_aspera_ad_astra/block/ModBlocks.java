@@ -86,6 +86,15 @@ public class ModBlocks {
     public static final RegistryObject<Block> TITANBLOCK = registerBlock("titanblock",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK)));
 
+    //MethanEIs
+    public static final RegistryObject<Block> METHANEIS = registerBlock("methaneis",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.ICE)));
+
+    //Schwefel
+    public static final RegistryObject<Block> SCHWEFEL = registerBlock("schwefel",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK)));
+
+
 
     // ---- Custom blocks go here ----
     // Example (needs blockstate, model, texture and lang entry in src/main/resources/assets/per_aspera_ad_astra/):

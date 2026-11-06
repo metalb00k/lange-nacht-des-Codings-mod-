@@ -1,6 +1,31 @@
 {
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "minecraft:block/dripstone_block"
-  }
+	"parent": "minecraft:block/block",
+	"render_type": "minecraft:cutout",
+	"ambientocclusion": false,
+	"textures": {
+		"0": "per_aspera_ad_astra:block/eiszapfen",
+		"particle": "per_aspera_ad_astra:block/eiszapfen"
+	},
+	"elements": [
+		{
+			"from": [0.8, 0, 8],
+			"to": [15.2, 16, 8],
+			"shade": false,
+			"rotation": {"origin": [8, 8, 8], "axis": "y", "angle": 45, "rescale": true},
+			"faces": {
+				"north": {"uv": [0, 0, 4, 8], "texture": "#0"},
+				"south": {"uv": [0, 0, 4, 8], "texture": "#0"}
+			}
+		},
+		{
+			"from": [8, 0, 0.8],
+			"to": [8, 16, 15.2],
+			"shade": false,
+			"rotation": {"origin": [8, 8, 8], "axis": "y", "angle": 45, "rescale": true},
+			"faces": {
+				"west": {"uv": [4, 0, 8, 8], "texture": "#0"},
+				"east": {"uv": [4, 0, 8, 8], "texture": "#0"}
+			}
+		}
+	]
 }
