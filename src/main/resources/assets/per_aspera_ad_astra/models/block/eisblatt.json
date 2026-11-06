@@ -1,7 +1,7 @@
 {
-  "parent": "minecraft:block/leaves",
+  "parent": "minecraft:block/cube_all",
   "render_type": "minecraft:cutout_mipped",
   "textures": {
-    "all": "minecraft:block/azalea_leaves"
+    "all": "per_aspera_ad_astra:block/eisblatt"
   }
 }

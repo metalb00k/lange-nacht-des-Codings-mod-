@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "minecraft:item/netherite_axe"
+    "layer0": "per_aspera_ad_astra:item/cryo_titan_axe"
   }
 }
