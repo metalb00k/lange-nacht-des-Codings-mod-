@@ -2,6 +2,7 @@ package net.example.per_aspera_ad_astra.entity.client;
 
 import net.example.per_aspera_ad_astra.Per_aspera_ad_astra;
 import net.example.per_aspera_ad_astra.entity.ModEntities;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -17,6 +18,7 @@ public class ModEntityClientEvents {
         event.registerLayerDefinition(YetiModel.LAYER_LOCATION, YetiModel::createBodyLayer);
         event.registerLayerDefinition(IceSpiderModel.LAYER_LOCATION, IceSpiderModel::createBodyLayer);
         event.registerLayerDefinition(IceFoxModel.LAYER_LOCATION, IceFoxModel::createBodyLayer);
+        event.registerLayerDefinition(IceGhastModel.LAYER_LOCATION, IceGhastModel::createBodyLayer);
     }
 
     @SubscribeEvent
@@ -25,5 +27,9 @@ public class ModEntityClientEvents {
         event.registerEntityRenderer(ModEntities.YETI.get(), YetiRenderer::new);
         event.registerEntityRenderer(ModEntities.ICE_SPIDER.get(), IceSpiderRenderer::new);
         event.registerEntityRenderer(ModEntities.ICE_FOX.get(), IceFoxRenderer::new);
+        event.registerEntityRenderer(ModEntities.ICE_GHAST.get(), IceGhastRenderer::new);
+        // The ice charge is drawn as a big flying ice sprite (textures/item/ice_charge.png, 3x size, always bright)
+        event.registerEntityRenderer(ModEntities.ICE_CHARGE.get(),
+                context -> new ThrownItemRenderer<>(context, 3.0F, true));
     }
 }
