@@ -27,7 +27,6 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.STAR_FRAGMENT.get());
                         pOutput.accept(Items.DIAMOND);
                         pOutput.accept(ModItems.CRYOORE.get());
-                        pOutput.accept(ModItems.PLATZHALTER.get());
                         pOutput.accept(ModItems.CRYOTITAN_INGOT.get());
                         // Cryo-Titan weapons, tools & armor
                         pOutput.accept(ModItems.CRYO_TITAN_SWORD.get());
@@ -58,7 +57,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.EISERDE.get());
                         pOutput.accept(ModBlocks.EISHOLZBRETT.get());
                         pOutput.accept(ModBlocks.ERZ_BLOCK.get());
-
+                        pOutput.accept(ModBlocks.EIS_STEIN.get());
 
                     })
                     .build());

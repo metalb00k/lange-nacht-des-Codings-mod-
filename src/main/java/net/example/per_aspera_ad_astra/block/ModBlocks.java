@@ -34,6 +34,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> MOD_PORTAL = registerBlock("mod_portal",
             () -> new ModPortalBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion().noCollission()));
 
+    // Blöcke Eisdimension
     public static final RegistryObject<Block> EISHOLZ = registerBlock("eisholz",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
 
@@ -41,7 +42,7 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
 
     public static final RegistryObject<Block> EISZAPFEN = registerBlock("eiszapfen",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DRIPSTONE_BLOCK)));
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.POINTED_DRIPSTONE)));
 
     public static final RegistryObject<Block> CRYOTITAN = registerBlock("cryo_titan",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.ANCIENT_DEBRIS)));
@@ -57,6 +58,9 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> ERZ_BLOCK = registerBlock("erz_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_ORE).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> EIS_STEIN = registerBlock("eis_stein",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).requiresCorrectToolForDrops()));
 
     // ---- Custom blocks go here ----
     // Example (needs blockstate, model, texture and lang entry in src/main/resources/assets/per_aspera_ad_astra/):
