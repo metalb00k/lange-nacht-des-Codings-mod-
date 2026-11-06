@@ -48,6 +48,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.FROSTKRISTALL.get());
                         pOutput.accept(ModBlocks.EISERDE.get());
                         pOutput.accept(ModBlocks.EISHOLZBRETT.get());
+                        pOutput.accept(ModBlocks.ERZ_BLOCK.get());
 
 
                     })

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "per_aspera_ad_astra:block/eisholzbrett"
+  }
+}

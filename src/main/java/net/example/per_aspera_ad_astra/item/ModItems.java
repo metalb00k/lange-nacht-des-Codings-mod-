@@ -34,8 +34,6 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> CRYOORE = ITEMS.register("cryo_titan_erz",
             () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CRYOTITAN_INGOT = ITEMS.register("cryo_titan_ingot",
-            () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> PLATZHALTER = ITEMS.register("platzhalter",
             () -> new Item(new Item.Properties()));
 

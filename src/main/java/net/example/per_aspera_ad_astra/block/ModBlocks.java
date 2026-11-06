@@ -51,6 +51,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> EISHOLZBRETT = registerBlock("eisholzbrett",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noLootTable().noOcclusion().noCollission()));
 
+    public static final RegistryObject<Block> ERZ_BLOCK = registerBlock("erz_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_ORE).requiresCorrectToolForDrops()));
+
     // ---- Custom blocks go here ----
     // Example (needs blockstate, model, texture and lang entry in src/main/resources/assets/per_aspera_ad_astra/):
     //
