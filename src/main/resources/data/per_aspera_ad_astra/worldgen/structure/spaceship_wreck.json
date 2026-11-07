@@ -1,0 +1,13 @@
+{
+  "_comment": [
+    "Crashed spaceship with 1-2 loot chests (loot_tables/chests/spaceship_wreck.json).",
+    "Built in Java (worldgen/structure/SpaceshipWreckPiece.java), not from an .nbt file, so every wreck looks a bit different.",
+    "Where: tags/worldgen/biome/has_spaceship_wreck.json. How often: worldgen/structure_set/spaceship_wreck.json.",
+    "Find one: /locate structure per_aspera_ad_astra:spaceship_wreck   Spawn one: /place structure per_aspera_ad_astra:spaceship_wreck"
+  ],
+  "type": "per_aspera_ad_astra:spaceship_wreck",
+  "biomes": "#per_aspera_ad_astra:has_spaceship_wreck",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "none"
+}

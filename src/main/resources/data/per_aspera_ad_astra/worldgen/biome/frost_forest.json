@@ -1,0 +1,41 @@
+{
+  "_comment": "Eiswald: dense forest of Eis trees, home of the yetis (made from astra_biome.json; climate in dimension/astra_dim.json, ground blocks in noise_settings/astra.json -> surface_rule). Keep shared features in the SAME ORDER as the other Astra biomes!",
+
+  "has_precipitation": true,
+  "temperature": 0.3,
+  "downfall": 0.4,
+
+  "effects": {
+    "sky_color": 4718740,
+    "fog_color": 1714226,
+    "water_color": 6619391,
+    "water_fog_color": 2228275,
+    "grass_color": 8010751,
+    "foliage_color": 6045439,
+    "particle": { "options": { "type": "minecraft:white_ash" }, "probability": 0.005 },
+    "mood_sound": { "sound": "minecraft:ambient.cave", "tick_delay": 6000, "block_search_extent": 8, "offset": 2.0 }
+  },
+
+  "spawners": {
+    "monster": [{ "type": "per_aspera_ad_astra:yeti", "weight": 2, "minCount": 1, "maxCount": 1 }, { "type": "per_aspera_ad_astra:ice_spider", "weight": 5, "minCount": 1, "maxCount": 2 }],
+    "creature": [{ "type": "per_aspera_ad_astra:schneeleopard", "weight": 10, "minCount": 1, "maxCount": 2 }, { "type": "per_aspera_ad_astra:ice_fox", "weight": 8, "minCount": 2, "maxCount": 3 }],
+    "ambient": [], "axolotls": [], "underground_water_creature": [], "water_creature": [], "water_ambient": [], "misc": []
+  },
+  "spawn_costs": {},
+
+  "carvers": { "air": [ "minecraft:cave", "minecraft:cave_extra_underground", "minecraft:canyon" ] },
+
+  "features": [
+    [], [], [], [], [], [],
+    [
+      "minecraft:ore_dirt",
+      "minecraft:ore_gravel",
+      "per_aspera_ad_astra:eiszapfen_blob",
+      "per_aspera_ad_astra:erz_ore"
+    ],
+    [ "per_aspera_ad_astra:thermal_caves" ],
+    [],
+    [ "per_aspera_ad_astra:eis_tree_dense", "per_aspera_ad_astra:eis_patch" ],
+    [ "minecraft:freeze_top_layer", "per_aspera_ad_astra:freeze_eiswasser" ]
+  ]
+}

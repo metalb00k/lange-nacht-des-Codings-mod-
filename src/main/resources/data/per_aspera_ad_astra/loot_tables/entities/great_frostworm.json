@@ -1,0 +1,25 @@
+{
+  "_comment": "Great Frostworm boss: always 1 Liver of Frost, plus Frostkristall and Cryo-Titan ingots.",
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [ { "type": "minecraft:item", "name": "per_aspera_ad_astra:liver_of_frost" } ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:frostkristall",
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 4, "max": 8 } } ] }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:cryo_titan_ingot",
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 1, "max": 3 } },
+                         { "function": "minecraft:looting_enchant", "count": { "type": "minecraft:uniform", "min": 0, "max": 1 } } ] }
+      ]
+    }
+  ]
+}

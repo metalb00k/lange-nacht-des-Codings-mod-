@@ -33,6 +33,19 @@ import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.core.particles.BlockParticleOption;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
+
+import net.example.per_aspera_ad_astra.event.ModAdvancements;
+
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
 
 /**
  * Yeti.
@@ -46,6 +59,7 @@ import net.minecraft.world.level.block.state.BlockState;
  *  - no village behaviour (no flowers for villagers, no village patrol)
  *  - can't be repaired with iron ingots
  *  - polar bear sounds instead of metal sounds
+ *  - earthquake slam when the target keeps its distance (YetiSlamGoal + startEarthquake)
  */
 public class YetiEntity extends IronGolem {
 
@@ -130,6 +144,109 @@ public class YetiEntity extends IronGolem {
     protected void customServerAiStep() {
         super.customServerAiStep();
         this.bossBar.setProgress(this.getHealth() / this.getMaxHealth());
+        this.tickEarthquake();
+    }
+
+    // =====================================================================
+    // Earthquake slam (started by YetiSlamGoal): a ring of breaking ground rolls outward,
+    // 1 block per tick. Everything standing ON THE GROUND in the ring gets hurt and thrown up.
+    // Jumping over the wave dodges it!
+    // =====================================================================
+    public static final int QUAKE_RADIUS = 8, BOSS_QUAKE_RADIUS = 12;   // how far the wave travels (blocks)
+    public static final float QUAKE_DAMAGE = 8.0F, BOSS_QUAKE_DAMAGE = 12.0F;
+
+    private int quakeRadius = -1; // current ring radius, -1 = no wave running
+    private Vec3 quakeCenter = Vec3.ZERO;
+    private final Set<UUID> quakeHit = new HashSet<>(); // every entity is hit only once per wave
+
+    public boolean isEarthquakeRunning() {
+        return quakeRadius >= 0;
+    }
+
+    /** The slam itself: big impact at the yeti's feet, then the wave starts. */
+    public void startEarthquake() {
+        if (!(this.level() instanceof ServerLevel server)) {
+            return;
+        }
+        quakeCenter = this.position();
+        quakeRadius = 0;
+        quakeHit.clear();
+        this.level().broadcastEntityEvent(this, (byte) 4); // iron golem arm-swing animation
+        server.playSound(null, getX(), getY(), getZ(), SoundEvents.GENERIC_EXPLODE, SoundSource.HOSTILE, 2.0F, 0.5F);
+        server.playSound(null, getX(), getY(), getZ(), SoundEvents.POLAR_BEAR_WARNING, SoundSource.HOSTILE, 3.0F, 0.5F);
+        server.sendParticles(ParticleTypes.EXPLOSION, getX(), getY() + 0.2, getZ(), 3, 1.0, 0.1, 1.0, 0.0);
+    }
+
+    private void tickEarthquake() {
+        if (quakeRadius < 0 || !(this.level() instanceof ServerLevel server)) {
+            return;
+        }
+        quakeRadius++;
+        int maxRadius = isMiniboss() ? BOSS_QUAKE_RADIUS : QUAKE_RADIUS;
+        if (quakeRadius > maxRadius) {
+            quakeRadius = -1;
+            return;
+        }
+        double r = quakeRadius;
+
+        // Visuals: ground blocks burst up along the ring
+        int points = (int) Math.ceil(2 * Math.PI * r * 1.5);
+        for (int i = 0; i < points; i++) {
+            double angle = 2 * Math.PI * i / points;
+            double x = quakeCenter.x + Math.cos(angle) * r;
+            double z = quakeCenter.z + Math.sin(angle) * r;
+            BlockPos ground = findGround(BlockPos.containing(x, quakeCenter.y, z));
+            if (ground == null) {
+                continue;
+            }
+            BlockState state = server.getBlockState(ground);
+            server.sendParticles(new BlockParticleOption(ParticleTypes.BLOCK, state),
+                    x, ground.getY() + 1.1, z, 5, 0.2, 0.1, 0.2, 0.15);
+            if (i % 4 == 0) {
+                server.sendParticles(ParticleTypes.CLOUD, x, ground.getY() + 1.1, z, 1, 0.1, 0.1, 0.1, 0.02);
+            }
+            if (i == 0 && quakeRadius % 2 == 0) {
+                server.playSound(null, x, ground.getY() + 1, z, state.getSoundType().getBreakSound(),
+                        SoundSource.HOSTILE, 1.5F, 0.6F);
+            }
+        }
+
+        // Damage: entities on the ground inside the ring band (r-1 .. r+0.5)
+        float damage = isMiniboss() ? BOSS_QUAKE_DAMAGE : QUAKE_DAMAGE;
+        AABB area = new AABB(quakeCenter, quakeCenter).inflate(r + 1, 2.0, r + 1);
+        for (LivingEntity victim : server.getEntitiesOfClass(LivingEntity.class, area, this::canQuakeHit)) {
+            double dx = victim.getX() - quakeCenter.x, dz = victim.getZ() - quakeCenter.z;
+            double dist = Math.sqrt(dx * dx + dz * dz);
+            if (dist < r - 1.0 || dist > r + 0.5 || !quakeHit.add(victim.getUUID())) {
+                continue;
+            }
+            victim.hurt(this.damageSources().mobAttack(this), damage);
+            if (victim instanceof ServerPlayer player && player.isDeadOrDying()) {
+                ModAdvancements.award(player, ModAdvancements.DUNKED_ON); // killed by the shockwave
+            }
+            // Thrown up and away from the yeti
+            double len = Math.max(dist, 0.1);
+            victim.push(dx / len * 0.6, 0.7, dz / len * 0.6);
+            victim.hurtMarked = true; // send the new motion to players
+        }
+    }
+
+    private boolean canQuakeHit(LivingEntity e) {
+        return e != this && !(e instanceof YetiEntity) && e.isAlive() && !e.isSpectator()
+                && e.onGround() // in the air = dodged
+                && !(e instanceof Player p && p.isCreative())
+                && Math.abs(e.getY() - quakeCenter.y) < 2.5;
+    }
+
+    /** The top solid block near the wave's height (so the wave follows small hills). */
+    private BlockPos findGround(BlockPos start) {
+        for (int dy = 1; dy >= -3; dy--) {
+            BlockPos pos = start.offset(0, dy - 1, 0);
+            if (!level().getBlockState(pos).isAir() && level().getBlockState(pos.above()).isAir()) {
+                return pos;
+            }
+        }
+        return null;
     }
 
     @Override
@@ -171,6 +288,7 @@ public class YetiEntity extends IronGolem {
     @Override
     protected void registerGoals() {
         // What it does (lower number = more important)
+        this.goalSelector.addGoal(0, new YetiSlamGoal(this)); // earthquake slam, interrupts walking/punching
         this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.0D, true));
         this.goalSelector.addGoal(2, new MoveTowardsTargetGoal(this, 0.9D, 32.0F));
         this.goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 0.6D));

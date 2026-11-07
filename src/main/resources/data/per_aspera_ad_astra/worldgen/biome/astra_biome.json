@@ -73,11 +73,6 @@
     [
       "minecraft:ore_dirt",
       "minecraft:ore_gravel",
-      "minecraft:ore_coal_upper",
-      "minecraft:ore_coal_lower",
-      "minecraft:ore_iron_upper",
-      "minecraft:ore_iron_middle",
-      "minecraft:ore_diamond",
       "per_aspera_ad_astra:eiszapfen_blob",
       "per_aspera_ad_astra:erz_ore"
     ],
@@ -87,7 +82,8 @@
     [],
     [
       "per_aspera_ad_astra:eis_tree",
-      "per_aspera_ad_astra:eis_patch"
+      "per_aspera_ad_astra:eis_patch",
+      "per_aspera_ad_astra:eis_boulder"
     ],
     [
       "minecraft:freeze_top_layer",

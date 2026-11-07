@@ -1,0 +1,18 @@
+{
+  "_comment": "Same Eis tree as eis_tree.json, but 12 tries per chunk instead of 3 -> dense forest (Eiswald biome).",
+  "feature": "per_aspera_ad_astra:eis_tree",
+  "placement": [
+    { "type": "minecraft:count", "count": 12 },
+    { "type": "minecraft:in_square" },
+    { "type": "minecraft:surface_water_depth_filter", "max_water_depth": 0 },
+    { "type": "minecraft:heightmap", "heightmap": "OCEAN_FLOOR" },
+    { "type": "minecraft:biome" },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:would_survive",
+        "state": { "Name": "minecraft:oak_sapling", "Properties": { "stage": "0" } }
+      }
+    }
+  ]
+}

@@ -31,6 +31,9 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.EISWASSER_EIMER.get());
                         pOutput.accept(ModItems.FLAMING_HEART.get());
                         pOutput.accept(ModItems.HEATER.get());
+                        pOutput.accept(ModItems.FOX_MEAT.get());
+                        pOutput.accept(ModItems.FOX_MEAT_COOKED.get());
+                        pOutput.accept(ModItems.FROST_BAIT.get());
                         pOutput.accept(ModItems.LIVER_OF_FROST.get());
                         pOutput.accept(ModItems.FREEZER.get());
                         // Cryo-Titan weapons, tools & armor

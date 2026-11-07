@@ -6,6 +6,9 @@ import net.minecraft.world.item.BucketItem;
 import net.example.per_aspera_ad_astra.item.custom.OxygenCanisterItem;
 import net.example.per_aspera_ad_astra.item.custom.SpacesuitChestplateItem;
 import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
@@ -54,6 +57,22 @@ public class ModItems {
     // Keep it anywhere in your inventory -> no cold damage from Eiswasser (see EiswasserBlock)
     public static final RegistryObject<Item> HEATER = ITEMS.register("heater",
             () -> new Item(new Item.Properties().stacksTo(1).fireResistant()));
+    // ---- Food (dropped by ice foxes, see loot_tables/entities/ice_fox.json) ----
+    // Raw: like raw rabbit, small chance of hunger
+    public static final RegistryObject<Item> FOX_MEAT = ITEMS.register("fox_meat",
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
+                    .nutrition(2).saturationMod(0.3f).meat()
+                    .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3f)
+                    .build())));
+    // Cooked (furnace / smoker / campfire): like cooked mutton
+    public static final RegistryObject<Item> FOX_MEAT_COOKED = ITEMS.register("fox_meat_cooked",
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
+                    .nutrition(6).saturationMod(0.8f).meat().build())));
+
+    // Throw into Eiswasser to summon the Great Frostworm boss (see item/custom/FrostBaitItem)
+    public static final RegistryObject<Item> FROST_BAIT = ITEMS.register("frost_bait",
+            () -> new net.example.per_aspera_ad_astra.item.custom.FrostBaitItem(new Item.Properties().stacksTo(1)));
+
     // Crafting ingredient for the freezer (no way to get it in survival yet, like the flaming heart)
     public static final RegistryObject<Item> LIVER_OF_FROST = ITEMS.register("liver_of_frost",
             () -> new Item(new Item.Properties()));

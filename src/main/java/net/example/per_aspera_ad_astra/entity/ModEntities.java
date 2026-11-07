@@ -80,6 +80,15 @@ public class ModEntities {
                             .updateInterval(10)
                             .build("ice_charge"));
 
+    // Boss: summoned with Frost Bait in Eiswasser, or /summon per_aspera_ad_astra:great_frostworm
+    // Hitbox matches the 2.5x model (see GreatFrostwormRenderer.SCALE)
+    public static final RegistryObject<EntityType<GreatFrostwormEntity>> GREAT_FROSTWORM =
+            ENTITY_TYPES.register("great_frostworm", () ->
+                    EntityType.Builder.of(GreatFrostwormEntity::new, MobCategory.MONSTER)
+                            .sized(3.0F, 3.5F)
+                            .clientTrackingRange(10)
+                            .build("great_frostworm"));
+
     // Ice shard shot by the freezer-upgraded spacesuit
     public static final RegistryObject<EntityType<IceShardProjectile>> ICE_SHARD =
             ENTITY_TYPES.register("ice_shard", () ->
@@ -100,12 +109,27 @@ public class ModEntities {
         event.put(ICE_SPIDER.get(), IceSpiderEntity.createAttributes().build());
         event.put(ICE_FOX.get(), IceFoxEntity.createAttributes().build());
         event.put(ICE_GHAST.get(), IceGhastEntity.createAttributes().build());
+        event.put(GREAT_FROSTWORM.get(), GreatFrostwormEntity.createAttributes().build());
     }
 
     /** Where natural spawns are allowed: on solid ground (snow, stone, ...), like vanilla cats. */
     @SubscribeEvent
     public static void registerSpawnPlacements(SpawnPlacementRegisterEvent event) {
         event.register(SCHNEELEOPARD.get(), SpawnPlacements.Type.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules,
+                SpawnPlacementRegisterEvent.Operation.REPLACE);
+        // Natural spawning in the Astra biomes (see the "spawners" in worldgen/biome/*.json)
+        event.register(YETI.get(), SpawnPlacements.Type.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules,
+                SpawnPlacementRegisterEvent.Operation.REPLACE);
+        event.register(ICE_SPIDER.get(), SpawnPlacements.Type.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules,
+                SpawnPlacementRegisterEvent.Operation.REPLACE);
+        event.register(ICE_FOX.get(), SpawnPlacements.Type.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules,
+                SpawnPlacementRegisterEvent.Operation.REPLACE);
+        // Flying: may spawn anywhere there is room
+        event.register(ICE_GHAST.get(), SpawnPlacements.Type.NO_RESTRICTIONS,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules,
                 SpawnPlacementRegisterEvent.Operation.REPLACE);
     }

@@ -1,5 +1,6 @@
 package net.example.per_aspera_ad_astra.block.custom;
 
+import net.example.per_aspera_ad_astra.entity.GreatFrostwormEntity;
 import net.example.per_aspera_ad_astra.item.ModItems;
 import net.example.per_aspera_ad_astra.item.custom.SpacesuitChestplateItem;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -33,7 +34,7 @@ public class EiswasserBlock extends LiquidBlock {
             return;
         }
         // A heater keeps you warm: no freezing, no damage
-        if (hasHeater(living)) {
+        if (hasHeater(living) || living instanceof GreatFrostwormEntity) { // the worm lives in here
             return;
         }
 

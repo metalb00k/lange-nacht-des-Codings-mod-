@@ -1,0 +1,41 @@
+{
+  "_comment": "Frostkristall-Spitzen: icy crystal pillars, snowing (made from astra_biome.json; climate in dimension/astra_dim.json, ground blocks in noise_settings/astra.json -> surface_rule). Keep shared features in the SAME ORDER as the other Astra biomes!",
+
+  "has_precipitation": true,
+  "temperature": -0.5,
+  "downfall": 0.4,
+
+  "effects": {
+    "sky_color": 7329023,
+    "fog_color": 10070783,
+    "water_color": 6619391,
+    "water_fog_color": 2228275,
+    "grass_color": 8010751,
+    "foliage_color": 6045439,
+    "particle": { "options": { "type": "minecraft:snowflake" }, "probability": 0.01 },
+    "mood_sound": { "sound": "minecraft:ambient.cave", "tick_delay": 6000, "block_search_extent": 8, "offset": 2.0 }
+  },
+
+  "spawners": {
+    "monster": [{ "type": "per_aspera_ad_astra:ice_spider", "weight": 10, "minCount": 1, "maxCount": 3 }, { "type": "per_aspera_ad_astra:ice_ghast", "weight": 1, "minCount": 1, "maxCount": 1 }],
+    "creature": [{ "type": "per_aspera_ad_astra:ice_fox", "weight": 5, "minCount": 1, "maxCount": 2 }],
+    "ambient": [], "axolotls": [], "underground_water_creature": [], "water_creature": [], "water_ambient": [], "misc": []
+  },
+  "spawn_costs": {},
+
+  "carvers": { "air": [ "minecraft:cave", "minecraft:cave_extra_underground", "minecraft:canyon" ] },
+
+  "features": [
+    [], [], [], [], [], [],
+    [
+      "minecraft:ore_dirt",
+      "minecraft:ore_gravel",
+      "per_aspera_ad_astra:eiszapfen_blob",
+      "per_aspera_ad_astra:erz_ore"
+    ],
+    [ "per_aspera_ad_astra:thermal_caves" ],
+    [],
+    [ "per_aspera_ad_astra:eis_patch", "per_aspera_ad_astra:frost_spire", "per_aspera_ad_astra:eis_boulder" ],
+    [ "minecraft:freeze_top_layer", "per_aspera_ad_astra:freeze_eiswasser" ]
+  ]
+}

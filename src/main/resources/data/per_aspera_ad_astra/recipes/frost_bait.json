@@ -1,0 +1,11 @@
+{
+  "_comment": "Frost Bait: raw fox meat surrounded by 4 Frostkristall. Throw it into Eiswasser to summon the Great Frostworm.",
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [" F ", "FMF", " F "],
+  "key": {
+    "F": { "item": "per_aspera_ad_astra:frostkristall" },
+    "M": { "item": "per_aspera_ad_astra:fox_meat" }
+  },
+  "result": { "item": "per_aspera_ad_astra:frost_bait", "count": 1 }
+}

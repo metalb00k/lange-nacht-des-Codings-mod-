@@ -1,0 +1,7 @@
+{
+  "_comment": "Round boulder of Eisblock lying on the ground (like the mossy cobblestone rocks in giant taigas).",
+  "type": "minecraft:forest_rock",
+  "config": {
+    "state": { "Name": "per_aspera_ad_astra:eisblock" }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "_comment": "Frostkristall pillars: 8 tries per chunk, on solid ground at the surface.",
+  "feature": "per_aspera_ad_astra:frost_spire",
+  "placement": [
+    { "type": "minecraft:count", "count": 8 },
+    { "type": "minecraft:in_square" },
+    { "type": "minecraft:heightmap", "heightmap": "WORLD_SURFACE_WG" },
+    { "type": "minecraft:biome" },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": { "type": "minecraft:solid", "offset": [0, -1, 0] }
+    }
+  ]
+}

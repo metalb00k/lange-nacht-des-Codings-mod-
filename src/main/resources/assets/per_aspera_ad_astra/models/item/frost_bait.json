@@ -1,0 +1,7 @@
+{
+  "_comment": "Placeholder texture (vanilla raw cod). Add textures/item/frost_bait.png and change layer0 to per_aspera_ad_astra:item/frost_bait",
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "minecraft:item/cod"
+  }
+}

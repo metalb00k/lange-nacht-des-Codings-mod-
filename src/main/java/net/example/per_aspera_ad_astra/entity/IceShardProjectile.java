@@ -20,7 +20,7 @@ import net.minecraft.world.phys.HitResult;
  * Deals damage, slows the target and freezes it a bit.
  */
 public class IceShardProjectile extends ThrowableItemProjectile {
-    private static final float DAMAGE = 5.0f;
+    private float damage = 5.0f; // default = player freezer shot; the frostworm sets its own
 
     public IceShardProjectile(EntityType<? extends IceShardProjectile> type, Level level) {
         super(type, level);
@@ -28,6 +28,10 @@ public class IceShardProjectile extends ThrowableItemProjectile {
 
     public IceShardProjectile(Level level, LivingEntity shooter) {
         super(ModEntities.ICE_SHARD.get(), shooter, level);
+    }
+
+    public void setDamage(float damage) {
+        this.damage = damage;
     }
 
     @Override
@@ -45,7 +49,7 @@ public class IceShardProjectile extends ThrowableItemProjectile {
     protected void onHitEntity(EntityHitResult result) {
         super.onHitEntity(result);
         Entity target = result.getEntity();
-        target.hurt(damageSources().thrown(this, getOwner()), DAMAGE);
+        target.hurt(damageSources().thrown(this, getOwner()), damage);
         if (target instanceof LivingEntity living) {
             living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 1));
             living.setTicksFrozen(Math.min(living.getTicksFrozen() + 80, living.getTicksRequiredToFreeze() + 40));

@@ -1,0 +1,12 @@
+{
+  "_comment": "spacing = average distance between wrecks in chunks (12 chunks = 192 blocks), separation = minimum distance. Lower numbers = more wrecks. Only spawns if that spot is in a Schwefelfelder biome on dry land.",
+  "structures": [
+    { "structure": "per_aspera_ad_astra:spaceship_wreck", "weight": 1 }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 12,
+    "separation": 5,
+    "salt": 582036147
+  }
+}

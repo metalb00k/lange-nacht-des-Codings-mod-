@@ -6,6 +6,7 @@ import net.example.per_aspera_ad_astra.worldgen.dimension.ModDimensions;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageSource;
@@ -89,15 +90,23 @@ public class OxygenEvents {
         }
 
         ItemStack chest = player.getItemBySlot(EquipmentSlot.CHEST);
+        MutableComponent message;
         if (!SpacesuitChestplateItem.hasFullSuit(player)) {
-            player.displayClientMessage(Component.translatable("message.per_aspera_ad_astra.no_suit")
-                    .withStyle(ChatFormatting.RED), true);
-            return;
+            message = Component.translatable("message.per_aspera_ad_astra.no_suit").withStyle(ChatFormatting.RED);
+        } else {
+            int percent = SpacesuitChestplateItem.getOxygenPercent(chest);
+            ChatFormatting color = percent > 50 ? ChatFormatting.AQUA : percent > 20 ? ChatFormatting.YELLOW : ChatFormatting.RED;
+            message = Component.translatable("message.per_aspera_ad_astra.oxygen_level", percent).withStyle(color);
         }
 
-        int percent = SpacesuitChestplateItem.getOxygenPercent(chest);
-        ChatFormatting color = percent > 50 ? ChatFormatting.AQUA : percent > 20 ? ChatFormatting.YELLOW : ChatFormatting.RED;
-        player.displayClientMessage(Component.translatable("message.per_aspera_ad_astra.oxygen_level", percent)
-                .withStyle(color), true);
+        // Overheating in the Schwefelfelder (see HeatEvents): shown next to the oxygen
+        int heat = HeatEvents.getHeatPercent(player);
+        if (heat > 0) {
+            ChatFormatting heatColor = heat >= 100 ? ChatFormatting.DARK_RED : heat > 50 ? ChatFormatting.RED : ChatFormatting.GOLD;
+            String key = heat >= 100 ? "message.per_aspera_ad_astra.burning" : "message.per_aspera_ad_astra.heat_level";
+            message.append(Component.literal("  |  ").withStyle(ChatFormatting.GRAY))
+                    .append(Component.translatable(key, heat).withStyle(heatColor));
+        }
+        player.displayClientMessage(message, true);
     }
 }

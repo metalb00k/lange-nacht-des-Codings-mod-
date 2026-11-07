@@ -346,7 +346,7 @@
       }
     }
   },
-  "ore_veins_enabled": true,
+  "ore_veins_enabled": false,
   "sea_level": 63,
   "spawn_target": [
     {
@@ -417,6 +417,102 @@
         "then_run": {
           "type": "minecraft:sequence",
           "sequence": [
+            {
+              "_comment": "Frostkristall-Spitzen: Frostkristall on top, Eisblock below (dry land only)",
+              "type": "minecraft:condition",
+              "if_true": { "type": "minecraft:biome", "biome_is": [ "per_aspera_ad_astra:crystal_spires" ] },
+              "then_run": {
+                "type": "minecraft:condition",
+                "if_true": { "type": "minecraft:water", "offset": -1, "surface_depth_multiplier": 0, "add_stone_depth": false },
+                "then_run": {
+                  "type": "minecraft:sequence",
+                  "sequence": [
+                    {
+                      "type": "minecraft:condition",
+                      "if_true": { "type": "minecraft:stone_depth", "offset": 0, "surface_type": "floor", "add_surface_depth": false, "secondary_depth_range": 0 },
+                      "then_run": { "type": "minecraft:block", "result_state": { "Name": "per_aspera_ad_astra:frostkristall" } }
+                    },
+                    {
+                      "type": "minecraft:condition",
+                      "if_true": { "type": "minecraft:stone_depth", "offset": 0, "surface_type": "floor", "add_surface_depth": true, "secondary_depth_range": 0 },
+                      "then_run": { "type": "minecraft:block", "result_state": { "Name": "per_aspera_ad_astra:eisblock" } }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "_comment": "Methaneis-Ebene: Methaneis on top (cracks under you!) with some Eisblock islands, Eisblock below",
+              "type": "minecraft:condition",
+              "if_true": { "type": "minecraft:biome", "biome_is": [ "per_aspera_ad_astra:methane_flats" ] },
+              "then_run": {
+                "type": "minecraft:condition",
+                "if_true": { "type": "minecraft:water", "offset": -1, "surface_depth_multiplier": 0, "add_stone_depth": false },
+                "then_run": {
+                  "type": "minecraft:sequence",
+                  "sequence": [
+                    {
+                      "type": "minecraft:condition",
+                      "if_true": { "type": "minecraft:stone_depth", "offset": 0, "surface_type": "floor", "add_surface_depth": false, "secondary_depth_range": 0 },
+                      "then_run": {
+                        "type": "minecraft:sequence",
+                        "sequence": [
+                          {
+                            "type": "minecraft:condition",
+                            "if_true": { "type": "minecraft:noise_threshold", "noise": "minecraft:surface", "min_threshold": 0.3, "max_threshold": 1.0E7 },
+                            "then_run": { "type": "minecraft:block", "result_state": { "Name": "per_aspera_ad_astra:eisblock" } }
+                          },
+                          { "type": "minecraft:block", "result_state": { "Name": "per_aspera_ad_astra:methaneis" } }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "minecraft:condition",
+                      "if_true": { "type": "minecraft:stone_depth", "offset": 0, "surface_type": "floor", "add_surface_depth": true, "secondary_depth_range": 0 },
+                      "then_run": { "type": "minecraft:block", "result_state": { "Name": "per_aspera_ad_astra:eisblock" } }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "_comment": "Schwefelfelder (sulfur desert): Schwefel 'sand' on top + a few layers deep, scattered Thermisches Gestein outcrops, Thermisches Gestein bedrock below the sand (like sandstone under desert sand). Also the lake floors.",
+              "type": "minecraft:condition",
+              "if_true": { "type": "minecraft:biome", "biome_is": [ "per_aspera_ad_astra:sulfur_wastes" ] },
+              "then_run": {
+                "type": "minecraft:sequence",
+                "sequence": [
+                  {
+                    "_comment": "Top block: mostly Schwefel, Thermisches Gestein where the surface noise is high (outcrops)",
+                    "type": "minecraft:condition",
+                    "if_true": { "type": "minecraft:stone_depth", "offset": 0, "surface_type": "floor", "add_surface_depth": false, "secondary_depth_range": 0 },
+                    "then_run": {
+                      "type": "minecraft:sequence",
+                      "sequence": [
+                        {
+                          "type": "minecraft:condition",
+                          "if_true": { "type": "minecraft:noise_threshold", "noise": "minecraft:surface", "min_threshold": 0.45, "max_threshold": 1.0E7 },
+                          "then_run": { "type": "minecraft:block", "result_state": { "Name": "per_aspera_ad_astra:thermisches_gestein" } }
+                        },
+                        { "type": "minecraft:block", "result_state": { "Name": "per_aspera_ad_astra:schwefel" } }
+                      ]
+                    }
+                  },
+                  {
+                    "_comment": "The 'sand' layer: 3-6 blocks of Schwefel",
+                    "type": "minecraft:condition",
+                    "if_true": { "type": "minecraft:stone_depth", "offset": 0, "surface_type": "floor", "add_surface_depth": true, "secondary_depth_range": 0 },
+                    "then_run": { "type": "minecraft:block", "result_state": { "Name": "per_aspera_ad_astra:schwefel" } }
+                  },
+                  {
+                    "_comment": "Below the sand: up to 6 more blocks of Thermisches Gestein, then normal Eisstein",
+                    "type": "minecraft:condition",
+                    "if_true": { "type": "minecraft:stone_depth", "offset": 0, "surface_type": "floor", "add_surface_depth": true, "secondary_depth_range": 6 },
+                    "then_run": { "type": "minecraft:block", "result_state": { "Name": "per_aspera_ad_astra:thermisches_gestein" } }
+                  }
+                ]
+              }
+            },
             {
               "type": "minecraft:condition",
               "if_true": { "type": "minecraft:stone_depth", "offset": 0, "surface_type": "floor", "add_surface_depth": false, "secondary_depth_range": 0 },

@@ -1,0 +1,41 @@
+{
+  "_comment": "Schwefelfelder: big hot sulfur desert (Schwefel sand, Thermisches Gestein outcrops, Schwefel pillars), no snow. You overheat here without a Freezer (event/HeatEvents) (made from astra_biome.json; climate in dimension/astra_dim.json, ground blocks in noise_settings/astra.json -> surface_rule). Keep shared features in the SAME ORDER as the other Astra biomes!",
+
+  "has_precipitation": false,
+  "temperature": 0.9,
+  "downfall": 0.4,
+
+  "effects": {
+    "sky_color": 9862690,
+    "fog_color": 7035434,
+    "water_color": 6619391,
+    "water_fog_color": 2228275,
+    "grass_color": 8010751,
+    "foliage_color": 6045439,
+    "particle": { "options": { "type": "minecraft:ash" }, "probability": 0.03 },
+    "mood_sound": { "sound": "minecraft:ambient.cave", "tick_delay": 6000, "block_search_extent": 8, "offset": 2.0 }
+  },
+
+  "spawners": {
+    "monster": [{ "type": "minecraft:magma_cube", "weight": 10, "minCount": 1, "maxCount": 3 }, { "type": "per_aspera_ad_astra:ice_spider", "weight": 3, "minCount": 1, "maxCount": 1 }],
+    "creature": [],
+    "ambient": [], "axolotls": [], "underground_water_creature": [], "water_creature": [], "water_ambient": [], "misc": []
+  },
+  "spawn_costs": {},
+
+  "carvers": { "air": [ "minecraft:cave", "minecraft:cave_extra_underground", "minecraft:canyon" ] },
+
+  "features": [
+    [], [], [], [], [], [],
+    [
+      "minecraft:ore_dirt",
+      "minecraft:ore_gravel",
+      "per_aspera_ad_astra:eiszapfen_blob",
+      "per_aspera_ad_astra:erz_ore"
+    ],
+    [ "per_aspera_ad_astra:thermal_caves" ],
+    [],
+    [ "per_aspera_ad_astra:schwefel_vent" ],
+    [ "minecraft:freeze_top_layer", "per_aspera_ad_astra:freeze_eiswasser" ]
+  ]
+}

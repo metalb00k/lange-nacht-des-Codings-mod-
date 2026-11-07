@@ -23,6 +23,8 @@ public class ModAdvancements {
     public static final String FROZEN_IN_EISWASSER = "astra/frozen_in_eiswasser";
     public static final String NO_OXYGEN = "astra/no_oxygen";
     public static final String FELL_THROUGH_ICE = "astra/fell_through_ice";
+    /** Killed by a yeti's earthquake shockwave (awarded in YetiEntity#tickEarthquake). */
+    public static final String DUNKED_ON = "astra/dunked_on";
 
     /** Completes all criteria of the given mod advancement for the player. */
     public static void award(ServerPlayer player, String name) {

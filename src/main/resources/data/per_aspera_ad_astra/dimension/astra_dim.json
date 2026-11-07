@@ -1,6 +1,8 @@
 {
   "_comment": [
     "The Astra dimension. Each entry in 'biomes' is one biome + the climate where it appears.",
+    "Land biomes by climate: cold+dry = Frostkristall-Spitzen, mild+dry = Astra Fields, cold/mild+humid = Eiswald,",
+    "warm+very humid = Methaneis-Ebene, warm (most of it) = Schwefelfelder (big sulfur desert). The ranges must not overlap.",
     "Land = Astra Fields, deep water areas (continentalness below -0.19, same as vanilla oceans) = Astra Ocean.",
     "A parameter can be one number or a range [min, max] (-1 to 1, continentalness goes a bit below -1).",
     "To add a new biome: create it in worldgen/biome/ (copy astra_biome.json) and add an entry here",
@@ -16,7 +18,11 @@
     "biome_source": {
       "type": "minecraft:multi_noise",
       "biomes": [
-        { "biome": "per_aspera_ad_astra:astra_biome", "parameters": { "temperature": [-1.0, 1.0], "humidity": [-1.0, 1.0], "continentalness": [-0.19, 1.0], "erosion": [-1.0, 1.0], "depth": 0.0, "weirdness": [-1.0, 1.0], "offset": 0.0 } },
+        { "biome": "per_aspera_ad_astra:astra_biome", "parameters": { "temperature": [-0.45, 0.1], "humidity": [-1.0, 0.1], "continentalness": [-0.19, 1.0], "erosion": [-1.0, 1.0], "depth": 0.0, "weirdness": [-1.0, 1.0], "offset": 0.0 } },
+        { "biome": "per_aspera_ad_astra:crystal_spires", "parameters": { "temperature": [-1.0, -0.45], "humidity": [-1.0, 0.1], "continentalness": [-0.19, 1.0], "erosion": [-1.0, 1.0], "depth": 0.0, "weirdness": [-1.0, 1.0], "offset": 0.0 } },
+        { "biome": "per_aspera_ad_astra:frost_forest", "parameters": { "temperature": [-1.0, 0.1], "humidity": [0.1, 1.0], "continentalness": [-0.19, 1.0], "erosion": [-1.0, 1.0], "depth": 0.0, "weirdness": [-1.0, 1.0], "offset": 0.0 } },
+        { "biome": "per_aspera_ad_astra:methane_flats", "parameters": { "temperature": [0.1, 1.0], "humidity": [0.4, 1.0], "continentalness": [-0.19, 1.0], "erosion": [-1.0, 1.0], "depth": 0.0, "weirdness": [-1.0, 1.0], "offset": 0.0 } },
+        { "biome": "per_aspera_ad_astra:sulfur_wastes", "parameters": { "temperature": [0.1, 1.0], "humidity": [-1.0, 0.4], "continentalness": [-0.19, 1.0], "erosion": [-1.0, 1.0], "depth": 0.0, "weirdness": [-1.0, 1.0], "offset": 0.0 } },
         { "biome": "per_aspera_ad_astra:astra_ocean", "parameters": { "temperature": [-1.0, 1.0], "humidity": [-1.0, 1.0], "continentalness": [-1.2, -0.19], "erosion": [-1.0, 1.0], "depth": 0.0, "weirdness": [-1.0, 1.0], "offset": 0.0 } }
       ]
     }

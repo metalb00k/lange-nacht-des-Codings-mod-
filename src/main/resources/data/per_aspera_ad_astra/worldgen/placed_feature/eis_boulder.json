@@ -1,0 +1,10 @@
+{
+  "_comment": "Eisblock boulders: about 1 every 3 chunks.",
+  "feature": "per_aspera_ad_astra:eis_boulder",
+  "placement": [
+    { "type": "minecraft:rarity_filter", "chance": 3 },
+    { "type": "minecraft:in_square" },
+    { "type": "minecraft:heightmap", "heightmap": "MOTION_BLOCKING" },
+    { "type": "minecraft:biome" }
+  ]
+}

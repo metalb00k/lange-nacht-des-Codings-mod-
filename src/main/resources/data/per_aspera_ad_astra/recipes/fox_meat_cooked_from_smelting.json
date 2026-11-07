@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "ingredient": { "item": "per_aspera_ad_astra:fox_meat" },
+  "result": "per_aspera_ad_astra:fox_meat_cooked",
+  "experience": 0.35,
+  "cookingtime": 200
+}
