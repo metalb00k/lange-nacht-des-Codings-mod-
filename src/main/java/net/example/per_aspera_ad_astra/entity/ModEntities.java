@@ -118,10 +118,8 @@ public class ModEntities {
         event.register(SCHNEELEOPARD.get(), SpawnPlacements.Type.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules,
                 SpawnPlacementRegisterEvent.Operation.REPLACE);
-        // Natural spawning in the Astra biomes (see the "spawners" in worldgen/biome/*.json)
-        event.register(YETI.get(), SpawnPlacements.Type.ON_GROUND,
-                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules,
-                SpawnPlacementRegisterEvent.Operation.REPLACE);
+        // Natural spawning in the Astra biomes (see the "spawners" in worldgen/biome/*.json).
+        // The yeti is NOT here on purpose: it is a miniboss and only spawns in yeti nests.
         event.register(ICE_SPIDER.get(), SpawnPlacements.Type.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules,
                 SpawnPlacementRegisterEvent.Operation.REPLACE);

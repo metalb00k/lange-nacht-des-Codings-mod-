@@ -1,5 +1,5 @@
 {
-  "_comment": "Eiswald: dense forest of Eis trees, home of the yetis (made from astra_biome.json; climate in dimension/astra_dim.json, ground blocks in noise_settings/astra.json -> surface_rule). Keep shared features in the SAME ORDER as the other Astra biomes!",
+  "_comment": "Eiswald: dense forest of Eis trees. No natural yeti spawns: yetis are minibosses and only come from yeti nests (made from astra_biome.json; climate in dimension/astra_dim.json, ground blocks in noise_settings/astra.json -> surface_rule). Keep shared features in the SAME ORDER as the other Astra biomes!",
 
   "has_precipitation": true,
   "temperature": 0.3,
@@ -17,7 +17,7 @@
   },
 
   "spawners": {
-    "monster": [{ "type": "per_aspera_ad_astra:yeti", "weight": 2, "minCount": 1, "maxCount": 1 }, { "type": "per_aspera_ad_astra:ice_spider", "weight": 5, "minCount": 1, "maxCount": 2 }],
+    "monster": [{ "type": "per_aspera_ad_astra:ice_spider", "weight": 5, "minCount": 1, "maxCount": 2 }],
     "creature": [{ "type": "per_aspera_ad_astra:schneeleopard", "weight": 10, "minCount": 1, "maxCount": 2 }, { "type": "per_aspera_ad_astra:ice_fox", "weight": 8, "minCount": 2, "maxCount": 3 }],
     "ambient": [], "axolotls": [], "underground_water_creature": [], "water_creature": [], "water_ambient": [], "misc": []
   },
