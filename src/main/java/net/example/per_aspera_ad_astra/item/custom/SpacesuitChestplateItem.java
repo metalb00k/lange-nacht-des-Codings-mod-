@@ -30,6 +30,10 @@ public class SpacesuitChestplateItem extends ArmorItem {
     public static final String HEATER = "heater";
     /** Freezer upgrade (needs the heater first): shoot ice shards with the shoot-ice key (default V). */
     public static final String FREEZER = "freezer";
+    /** Jetpack upgrade: hold jump in the air to fly up, burns oxygen (see client/ModKeyBindings + network/JetpackPacket). */
+    public static final String JETPACK = "jetpack";
+    /** Oxygen used per tick of thrust (the tank holds 6000 = ~2.5 min of non-stop flying). */
+    public static final int JETPACK_OXYGEN_PER_TICK = 2;
 
     public SpacesuitChestplateItem(ArmorMaterial material, Properties properties) {
         super(material, Type.CHESTPLATE, properties);
@@ -82,6 +86,9 @@ public class SpacesuitChestplateItem extends ArmorItem {
         }
         if (hasUpgrade(stack, FREEZER)) {
             tooltip.add(Component.translatable("tooltip.per_aspera_ad_astra.upgrade_freezer").withStyle(ChatFormatting.BLUE));
+        }
+        if (hasUpgrade(stack, JETPACK)) {
+            tooltip.add(Component.translatable("tooltip.per_aspera_ad_astra.upgrade_jetpack").withStyle(ChatFormatting.RED));
         }
         super.appendHoverText(stack, level, tooltip, flag);
     }

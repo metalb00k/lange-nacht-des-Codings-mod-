@@ -19,5 +19,10 @@ public class ModNetwork {
                 .decoder(ShootIcePacket::decode)
                 .consumerMainThread(ShootIcePacket::handle)
                 .add();
+        CHANNEL.messageBuilder(JetpackPacket.class, id++, NetworkDirection.PLAY_TO_SERVER)
+                .encoder(JetpackPacket::encode)
+                .decoder(JetpackPacket::decode)
+                .consumerMainThread(JetpackPacket::handle)
+                .add();
     }
 }

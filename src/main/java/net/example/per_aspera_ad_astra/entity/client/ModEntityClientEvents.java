@@ -19,6 +19,7 @@ public class ModEntityClientEvents {
         event.registerLayerDefinition(IceFoxModel.LAYER_LOCATION, IceFoxModel::createBodyLayer);
         event.registerLayerDefinition(IceGhastModel.LAYER_LOCATION, IceGhastModel::createBodyLayer);
         event.registerLayerDefinition(GreatFrostwormModel.LAYER_LOCATION, GreatFrostwormModel::createBodyLayer);
+        event.registerLayerDefinition(AlienVillagerModel.LAYER_LOCATION, AlienVillagerModel::createBodyLayer);
     }
 
     @SubscribeEvent
@@ -29,6 +30,10 @@ public class ModEntityClientEvents {
         event.registerEntityRenderer(ModEntities.ICE_FOX.get(), IceFoxRenderer::new);
         event.registerEntityRenderer(ModEntities.ICE_GHAST.get(), IceGhastRenderer::new);
         event.registerEntityRenderer(ModEntities.GREAT_FROSTWORM.get(), GreatFrostwormRenderer::new);
+        event.registerEntityRenderer(ModEntities.ALIEN_VILLAGER.get(), AlienVillagerRenderer::new);
+        event.registerEntityRenderer(ModEntities.ICE_COW.get(), IceCowRenderer::new); // vanilla cow model, own texture
+        event.registerEntityRenderer(ModEntities.ICE_CHICKEN.get(), IceChickenRenderer::new); // vanilla chicken model, own texture
+        event.registerEntityRenderer(ModEntities.ICE_BEE.get(), IceBeeRenderer::new); // vanilla bee model, own texture
         // The ice charge is drawn as a big flying ice sprite (textures/item/ice_charge.png, 3x size, always bright)
         event.registerEntityRenderer(ModEntities.ICE_CHARGE.get(),
                 context -> new net.minecraft.client.renderer.entity.ThrownItemRenderer<>(context, 3.0F, true));

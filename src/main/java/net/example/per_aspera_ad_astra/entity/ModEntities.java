@@ -80,6 +80,38 @@ public class ModEntities {
                             .updateInterval(10)
                             .build("ice_charge"));
 
+    // Same size as a vanilla cow. Spawns in Astra Fields + Eiswald, spawn egg: ice_cow_spawn_egg
+    public static final RegistryObject<EntityType<IceCowEntity>> ICE_COW =
+            ENTITY_TYPES.register("ice_cow", () ->
+                    EntityType.Builder.of(IceCowEntity::new, MobCategory.CREATURE)
+                            .sized(0.9F, 1.4F)
+                            .clientTrackingRange(10)
+                            .build("ice_cow"));
+
+    // Same size as a vanilla chicken. Spawns in Astra Fields + Eiswald, spawn egg: ice_chicken_spawn_egg
+    public static final RegistryObject<EntityType<IceChickenEntity>> ICE_CHICKEN =
+            ENTITY_TYPES.register("ice_chicken", () ->
+                    EntityType.Builder.of(IceChickenEntity::new, MobCategory.CREATURE)
+                            .sized(0.4F, 0.7F)
+                            .clientTrackingRange(10)
+                            .build("ice_chicken"));
+
+    // Same size as a vanilla bee. Lives in Ice Beehives, spawn egg: ice_bee_spawn_egg
+    public static final RegistryObject<EntityType<IceBeeEntity>> ICE_BEE =
+            ENTITY_TYPES.register("ice_bee", () ->
+                    EntityType.Builder.of(IceBeeEntity::new, MobCategory.CREATURE)
+                            .sized(0.7F, 0.6F)
+                            .clientTrackingRange(8)
+                            .build("ice_bee"));
+
+    // Trader that lives in alien villages. Spawn egg: alien_villager_spawn_egg
+    public static final RegistryObject<EntityType<AlienVillagerEntity>> ALIEN_VILLAGER =
+            ENTITY_TYPES.register("alien_villager", () ->
+                    EntityType.Builder.of(AlienVillagerEntity::new, MobCategory.CREATURE)
+                            .sized(1.1F, 1.3F)
+                            .clientTrackingRange(10)
+                            .build("alien_villager"));
+
     // Boss: summoned with Frost Bait in Eiswasser, or /summon per_aspera_ad_astra:great_frostworm
     // Hitbox matches the 2.5x model (see GreatFrostwormRenderer.SCALE)
     public static final RegistryObject<EntityType<GreatFrostwormEntity>> GREAT_FROSTWORM =
@@ -110,6 +142,10 @@ public class ModEntities {
         event.put(ICE_FOX.get(), IceFoxEntity.createAttributes().build());
         event.put(ICE_GHAST.get(), IceGhastEntity.createAttributes().build());
         event.put(GREAT_FROSTWORM.get(), GreatFrostwormEntity.createAttributes().build());
+        event.put(ALIEN_VILLAGER.get(), AlienVillagerEntity.createAttributes().build());
+        event.put(ICE_COW.get(), IceCowEntity.createAttributes().build());
+        event.put(ICE_CHICKEN.get(), IceChickenEntity.createAttributes().build());
+        event.put(ICE_BEE.get(), IceBeeEntity.createAttributes().build());
     }
 
     /** Where natural spawns are allowed: on solid ground (snow, stone, ...), like vanilla cats. */
@@ -121,6 +157,16 @@ public class ModEntities {
         // Natural spawning in the Astra biomes (see the "spawners" in worldgen/biome/*.json).
         // The yeti is NOT here on purpose: it is a miniboss and only spawns in yeti nests.
         event.register(ICE_SPIDER.get(), SpawnPlacements.Type.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules,
+                SpawnPlacementRegisterEvent.Operation.REPLACE);
+        // Vanilla cows need grass to spawn; Astra has none, so the ice cow may spawn on any solid ground
+        event.register(ICE_COW.get(), SpawnPlacements.Type.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules,
+                SpawnPlacementRegisterEvent.Operation.REPLACE);
+        event.register(ICE_CHICKEN.get(), SpawnPlacements.Type.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules,
+                SpawnPlacementRegisterEvent.Operation.REPLACE);
+        event.register(ICE_BEE.get(), SpawnPlacements.Type.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules,
                 SpawnPlacementRegisterEvent.Operation.REPLACE);
         event.register(ICE_FOX.get(), SpawnPlacements.Type.ON_GROUND,

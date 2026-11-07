@@ -24,6 +24,12 @@ public class ModStructures {
     public static final RegistryObject<StructurePieceType> SPACESHIP_WRECK_PIECE =
             PIECE_TYPES.register("spaceship_wreck", () -> (StructurePieceType.ContextlessType) SpaceshipWreckPiece::new);
 
+    public static final RegistryObject<StructureType<AlienVillageStructure>> ALIEN_VILLAGE =
+            STRUCTURE_TYPES.register("alien_village", () -> () -> AlienVillageStructure.CODEC);
+
+    public static final RegistryObject<StructurePieceType> ALIEN_VILLAGE_PIECE =
+            PIECE_TYPES.register("alien_village", () -> (StructurePieceType.ContextlessType) AlienVillagePiece::new);
+
     public static void register(IEventBus eventBus) {
         STRUCTURE_TYPES.register(eventBus);
         PIECE_TYPES.register(eventBus);

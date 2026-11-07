@@ -99,6 +99,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> THERMISCHESGESTEIN = registerBlock("thermisches_gestein",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.MAGMA_BLOCK)));
 
+    // Ice beehive: blue vanilla beehive (same honey/bee logic) for the ice bees.
+    // Hooked into the vanilla bee system in ModBeehives (bee home + beehive block entity).
+    public static final RegistryObject<Block> ICE_BEEHIVE = registerBlock("ice_beehive",
+            () -> new net.minecraft.world.level.block.BeehiveBlock(BlockBehaviour.Properties.copy(Blocks.BEEHIVE)));
+
 
 
 

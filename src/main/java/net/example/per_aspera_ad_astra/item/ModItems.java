@@ -73,6 +73,10 @@ public class ModItems {
     public static final RegistryObject<Item> FROST_BAIT = ITEMS.register("frost_bait",
             () -> new net.example.per_aspera_ad_astra.item.custom.FrostBaitItem(new Item.Properties().stacksTo(1)));
 
+    // Only use: spacesuit chestplate upgrade -> fly by holding jump (see item/custom/JetpackItem)
+    public static final RegistryObject<Item> JETPACK = ITEMS.register("jetpack",
+            () -> new net.example.per_aspera_ad_astra.item.custom.JetpackItem(new Item.Properties().stacksTo(1)));
+
     // Crafting ingredient for the freezer (no way to get it in survival yet, like the flaming heart)
     public static final RegistryObject<Item> LIVER_OF_FROST = ITEMS.register("liver_of_frost",
             () -> new Item(new Item.Properties()));
@@ -119,6 +123,18 @@ public class ModItems {
 
     // ---- Mobs ----
     // Spawn egg for the snow leopard (colors: white background, dark grey spots)
+    // Spawn egg for the ice cow (light blue / white)
+    public static final RegistryObject<Item> ICE_COW_SPAWN_EGG = ITEMS.register("ice_cow_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.ICE_COW, 0xA8D8F0, 0xF2FAFF, new Item.Properties()));
+    // Spawn egg for the ice chicken (white / light blue)
+    public static final RegistryObject<Item> ICE_CHICKEN_SPAWN_EGG = ITEMS.register("ice_chicken_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.ICE_CHICKEN, 0xF2FAFF, 0x7FC8E8, new Item.Properties()));
+    // Spawn egg for the ice bee (light blue / dark blue)
+    public static final RegistryObject<Item> ICE_BEE_SPAWN_EGG = ITEMS.register("ice_bee_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.ICE_BEE, 0xA8D8F0, 0x2B4C7E, new Item.Properties()));
+    // Spawn egg for the alien villager (green / purple)
+    public static final RegistryObject<Item> ALIEN_VILLAGER_SPAWN_EGG = ITEMS.register("alien_villager_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.ALIEN_VILLAGER, 0x7FD14B, 0x6B3FA0, new Item.Properties()));
     public static final RegistryObject<Item> SCHNEELEOPARD_SPAWN_EGG = ITEMS.register("schneeleopard_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.SCHNEELEOPARD, 0xE6E6E6, 0x3C3C3C, new Item.Properties()));
 

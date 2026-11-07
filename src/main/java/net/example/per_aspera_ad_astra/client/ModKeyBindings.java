@@ -4,6 +4,12 @@ import com.mojang.blaze3d.platform.InputConstants;
 import net.example.per_aspera_ad_astra.Per_aspera_ad_astra;
 import net.example.per_aspera_ad_astra.network.ModNetwork;
 import net.example.per_aspera_ad_astra.network.ShootIcePacket;
+import net.example.per_aspera_ad_astra.network.JetpackPacket;
+import net.example.per_aspera_ad_astra.item.custom.SpacesuitChestplateItem;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
@@ -37,6 +43,29 @@ public class ModKeyBindings {
             if (SHOOT_ICE.isDown()) {
                 ModNetwork.CHANNEL.sendToServer(new ShootIcePacket());
             }
+            tickJetpack(Minecraft.getInstance());
+        }
+
+        /**
+         * Jetpack: hold JUMP while in the air -> thrust upwards (max 0.5 blocks/tick up).
+         * Movement has to happen here on the client; the server part (oxygen, particles, no fall damage)
+         * is in JetpackPacket.
+         */
+        private static void tickJetpack(Minecraft mc) {
+            LocalPlayer player = mc.player;
+            if (player == null || player.isSpectator() || player.getAbilities().flying
+                    || player.onGround() || player.isInWater() || !mc.options.keyJump.isDown()) {
+                return;
+            }
+            ItemStack chest = player.getItemBySlot(EquipmentSlot.CHEST);
+            if (!SpacesuitChestplateItem.hasUpgrade(chest, SpacesuitChestplateItem.JETPACK)
+                    || (!player.isCreative() && SpacesuitChestplateItem.getOxygen(chest) <= 0)) {
+                return;
+            }
+            Vec3 motion = player.getDeltaMovement();
+            player.setDeltaMovement(motion.x, Math.min(motion.y + 0.15, 0.5), motion.z);
+            player.fallDistance = 0;
+            ModNetwork.CHANNEL.sendToServer(new JetpackPacket());
         }
     }
 }

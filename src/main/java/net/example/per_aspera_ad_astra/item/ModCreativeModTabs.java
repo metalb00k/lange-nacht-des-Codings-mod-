@@ -34,6 +34,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.FOX_MEAT.get());
                         pOutput.accept(ModItems.FOX_MEAT_COOKED.get());
                         pOutput.accept(ModItems.FROST_BAIT.get());
+                        pOutput.accept(ModItems.JETPACK.get());
                         pOutput.accept(ModItems.LIVER_OF_FROST.get());
                         pOutput.accept(ModItems.FREEZER.get());
                         // Cryo-Titan weapons, tools & armor
@@ -57,6 +58,11 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.OXYGEN_CANISTER.get());
                         // Mobs
                         pOutput.accept(ModItems.SCHNEELEOPARD_SPAWN_EGG.get());
+                        pOutput.accept(ModItems.ALIEN_VILLAGER_SPAWN_EGG.get());
+                        pOutput.accept(ModItems.ICE_COW_SPAWN_EGG.get());
+                        pOutput.accept(ModItems.ICE_CHICKEN_SPAWN_EGG.get());
+                        pOutput.accept(ModItems.ICE_BEE_SPAWN_EGG.get());
+                        pOutput.accept(ModBlocks.ICE_BEEHIVE.get());
                         // Block
                         pOutput.accept(ModBlocks.MOD_PORTAL.get());
                         pOutput.accept(ModBlocks.EISHOLZ.get());

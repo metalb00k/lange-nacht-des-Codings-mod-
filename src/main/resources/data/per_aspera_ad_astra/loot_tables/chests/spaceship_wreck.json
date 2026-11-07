@@ -1,7 +1,7 @@
 {
   "_comment": [
     "Loot in the crashed spaceships (Schwefelfelder).",
-    "Pool 1: supplies (4-7 stacks). Pool 2: rare gear (35% nothing). Pool 3: Frost Bait for the Great Frostworm (40%)."
+    "Pool 1: supplies (4-7 stacks). Pool 2: rare gear (35% nothing). (Frost Bait is in the sunken houses now; the summon item for the next boss goes here.)"
   ],
   "type": "minecraft:chest",
   "pools": [
@@ -37,14 +37,6 @@
         { "type": "minecraft:item", "name": "per_aspera_ad_astra:heater", "weight": 6 },
         { "type": "minecraft:item", "name": "per_aspera_ad_astra:freezer", "weight": 4 },
         { "type": "minecraft:item", "name": "per_aspera_ad_astra:titanblock", "weight": 3 }
-      ]
-    },
-    {
-      "rolls": 1,
-      "bonus_rolls": 0,
-      "entries": [
-        { "type": "minecraft:empty", "weight": 3 },
-        { "type": "minecraft:item", "name": "per_aspera_ad_astra:frost_bait", "weight": 2 }
       ]
     }
   ]

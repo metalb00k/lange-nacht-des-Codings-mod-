@@ -42,6 +42,15 @@
         { "_comment": "Ingredient for the freezer (spacesuit ice-shot upgrade): 5% per chest",
           "type": "minecraft:item", "name": "per_aspera_ad_astra:liver_of_frost", "weight": 5 }
       ]
+    },
+    {
+      "_comment": "Frost Bait (summons the Great Frostworm when thrown into Eiswasser): 40% per chest",
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        { "type": "minecraft:empty", "weight": 3 },
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:frost_bait", "weight": 2 }
+      ]
     }
   ]
 }

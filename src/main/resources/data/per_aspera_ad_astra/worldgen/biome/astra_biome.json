@@ -38,7 +38,9 @@
       { "type": "minecraft:enderman", "weight": 10, "minCount": 1, "maxCount": 2 }
     ],
     "creature": [
-      { "type": "per_aspera_ad_astra:schneeleopard", "weight": 10, "minCount": 1, "maxCount": 2 }
+      { "type": "per_aspera_ad_astra:schneeleopard", "weight": 10, "minCount": 1, "maxCount": 2 },
+      { "type": "per_aspera_ad_astra:ice_cow", "weight": 10, "minCount": 2, "maxCount": 4 },
+      { "type": "per_aspera_ad_astra:ice_chicken", "weight": 10, "minCount": 2, "maxCount": 4 }
     ],
     "ambient": [],
     "axolotls": [],
