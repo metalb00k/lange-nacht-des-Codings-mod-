@@ -25,6 +25,8 @@ public class ModAdvancements {
     public static final String FELL_THROUGH_ICE = "astra/fell_through_ice";
     /** Killed by a yeti's earthquake shockwave (awarded in YetiEntity#tickEarthquake). */
     public static final String DUNKED_ON = "astra/dunked_on";
+    /** Was near the lake when the Great Frostworm got summoned (awarded in FrostBaitItem). */
+    public static final String SOMETHING_BITING = "astra/something_biting";
 
     /** Completes all criteria of the given mod advancement for the player. */
     public static void award(ServerPlayer player, String name) {

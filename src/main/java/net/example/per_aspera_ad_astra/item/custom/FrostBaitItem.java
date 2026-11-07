@@ -77,6 +77,12 @@ public class FrostBaitItem extends Item {
                 worm.setYHeadRot(yaw);
                 worm.finalizeSpawn(level, level.getCurrentDifficultyAt(worm.blockPosition()), MobSpawnType.EVENT, null, null);
                 level.addFreshEntity(worm);
+                // Advancement "Something's Biting" for everyone who sees it happen
+                for (var player : level.getEntitiesOfClass(net.minecraft.server.level.ServerPlayer.class,
+                        item.getBoundingBox().inflate(48))) {
+                    net.example.per_aspera_ad_astra.event.ModAdvancements.award(player,
+                            net.example.per_aspera_ad_astra.event.ModAdvancements.SOMETHING_BITING);
+                }
                 // Bursts out of the water (through the ice) and slams down next to the nearest player
                 worm.launchLeapAt(nearest != null ? nearest.position() : worm.position());
 

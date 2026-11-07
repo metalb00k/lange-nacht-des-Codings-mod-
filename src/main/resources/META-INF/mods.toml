@@ -49,6 +49,9 @@ authors="${mod_authors}" #optional
 
 # The description text for the mod (multi line!) (#mandatory)
 description='''${mod_description}'''
+# Mod logo in the Forge mod list (src/main/resources/logo.png). logoBlur=false keeps the pixel art sharp.
+logoFile="logo.png"
+logoBlur=false
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.${mod_id}]] #optional
     # the modid of the dependency
