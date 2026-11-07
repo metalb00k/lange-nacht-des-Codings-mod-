@@ -1,0 +1,13 @@
+{
+  "display": {
+    "icon": { "item": "per_aspera_ad_astra:heater" },
+    "title": { "translate": "advancements.per_aspera_ad_astra.toasty.title" },
+    "description": { "translate": "advancements.per_aspera_ad_astra.toasty.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "per_aspera_ad_astra:astra/suit_up",
+  "criteria": { "c": { "trigger": "minecraft:inventory_changed", "conditions": { "items": [ { "items": [ "per_aspera_ad_astra:spacesuit_chestplate" ], "nbt": "{heater:1b}" } ] } } }
+}

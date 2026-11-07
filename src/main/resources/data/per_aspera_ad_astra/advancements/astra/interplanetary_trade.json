@@ -1,0 +1,13 @@
+{
+  "display": {
+    "icon": { "item": "per_aspera_ad_astra:star_fragment" },
+    "title": { "translate": "advancements.per_aspera_ad_astra.interplanetary_trade.title" },
+    "description": { "translate": "advancements.per_aspera_ad_astra.interplanetary_trade.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "per_aspera_ad_astra:astra/close_encounter",
+  "criteria": { "c": { "trigger": "minecraft:villager_trade", "conditions": { "villager": [ { "condition": "minecraft:entity_properties", "entity": "this", "predicate": { "type": "per_aspera_ad_astra:alien_villager" } } ] } } }
+}

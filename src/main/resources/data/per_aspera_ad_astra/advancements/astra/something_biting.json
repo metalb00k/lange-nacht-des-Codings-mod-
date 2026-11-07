@@ -1,0 +1,13 @@
+{
+  "display": {
+    "icon": { "item": "per_aspera_ad_astra:frost_bait" },
+    "title": { "translate": "advancements.per_aspera_ad_astra.something_biting.title" },
+    "description": { "translate": "advancements.per_aspera_ad_astra.something_biting.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "per_aspera_ad_astra:astra/root",
+  "criteria": { "c": { "trigger": "minecraft:impossible" } }
+}

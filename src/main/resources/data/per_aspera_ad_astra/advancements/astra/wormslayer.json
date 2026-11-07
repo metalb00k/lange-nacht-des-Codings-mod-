@@ -1,0 +1,14 @@
+{
+  "display": {
+    "icon": { "item": "per_aspera_ad_astra:liver_of_frost" },
+    "title": { "translate": "advancements.per_aspera_ad_astra.wormslayer.title" },
+    "description": { "translate": "advancements.per_aspera_ad_astra.wormslayer.description" },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "per_aspera_ad_astra:astra/something_biting",
+  "criteria": { "c": { "trigger": "minecraft:player_killed_entity", "conditions": { "entity": [ { "condition": "minecraft:entity_properties", "entity": "this", "predicate": { "type": "per_aspera_ad_astra:great_frostworm" } } ] } } },
+  "rewards": { "experience": 200 }
+}

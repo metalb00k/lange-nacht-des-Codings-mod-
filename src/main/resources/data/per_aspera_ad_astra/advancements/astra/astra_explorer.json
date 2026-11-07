@@ -1,0 +1,14 @@
+{
+  "display": {
+    "icon": { "item": "minecraft:compass" },
+    "title": { "translate": "advancements.per_aspera_ad_astra.astra_explorer.title" },
+    "description": { "translate": "advancements.per_aspera_ad_astra.astra_explorer.description" },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "per_aspera_ad_astra:astra/root",
+  "criteria": { "astra_biome": { "trigger": "minecraft:location", "conditions": { "player": [ { "condition": "minecraft:entity_properties", "entity": "this", "predicate": { "location": { "biome": "per_aspera_ad_astra:astra_biome" } } } ] } }, "astra_ocean": { "trigger": "minecraft:location", "conditions": { "player": [ { "condition": "minecraft:entity_properties", "entity": "this", "predicate": { "location": { "biome": "per_aspera_ad_astra:astra_ocean" } } } ] } }, "crystal_spires": { "trigger": "minecraft:location", "conditions": { "player": [ { "condition": "minecraft:entity_properties", "entity": "this", "predicate": { "location": { "biome": "per_aspera_ad_astra:crystal_spires" } } } ] } }, "frost_forest": { "trigger": "minecraft:location", "conditions": { "player": [ { "condition": "minecraft:entity_properties", "entity": "this", "predicate": { "location": { "biome": "per_aspera_ad_astra:frost_forest" } } } ] } }, "methane_flats": { "trigger": "minecraft:location", "conditions": { "player": [ { "condition": "minecraft:entity_properties", "entity": "this", "predicate": { "location": { "biome": "per_aspera_ad_astra:methane_flats" } } } ] } }, "sulfur_wastes": { "trigger": "minecraft:location", "conditions": { "player": [ { "condition": "minecraft:entity_properties", "entity": "this", "predicate": { "location": { "biome": "per_aspera_ad_astra:sulfur_wastes" } } } ] } } },
+  "rewards": { "experience": 100 }
+}

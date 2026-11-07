@@ -1,0 +1,13 @@
+{
+  "display": {
+    "icon": { "item": "per_aspera_ad_astra:alien_villager_spawn_egg" },
+    "title": { "translate": "advancements.per_aspera_ad_astra.close_encounter.title" },
+    "description": { "translate": "advancements.per_aspera_ad_astra.close_encounter.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "per_aspera_ad_astra:astra/root",
+  "criteria": { "c": { "trigger": "minecraft:location", "conditions": { "player": [ { "condition": "minecraft:entity_properties", "entity": "this", "predicate": { "location": { "structure": "per_aspera_ad_astra:alien_village" } } } ] } } }
+}

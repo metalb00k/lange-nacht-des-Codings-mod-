@@ -1,0 +1,13 @@
+{
+  "display": {
+    "icon": { "item": "per_aspera_ad_astra:spacesuit_helmet" },
+    "title": { "translate": "advancements.per_aspera_ad_astra.suit_up.title" },
+    "description": { "translate": "advancements.per_aspera_ad_astra.suit_up.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "per_aspera_ad_astra:astra/root",
+  "criteria": { "c": { "trigger": "minecraft:inventory_changed", "conditions": { "items": [ { "items": [ "per_aspera_ad_astra:spacesuit_helmet" ] }, { "items": [ "per_aspera_ad_astra:spacesuit_chestplate" ] }, { "items": [ "per_aspera_ad_astra:spacesuit_leggings" ] }, { "items": [ "per_aspera_ad_astra:spacesuit_boots" ] } ] } } }
+}
