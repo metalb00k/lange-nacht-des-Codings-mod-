@@ -1,0 +1,26 @@
+{
+  "_comment": "Chest in every alien hut: everyday alien stuff + a few Star Fragments (the alien currency).",
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": { "type": "minecraft:uniform", "min": 3, "max": 5 },
+      "bonus_rolls": 0,
+      "entries": [
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:star_fragment", "weight": 15,
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 1, "max": 4 } } ] },
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:fox_meat_cooked", "weight": 15,
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 1, "max": 4 } } ] },
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:oxygen_canister", "weight": 12,
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 1, "max": 2 } } ] },
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:frostkristall", "weight": 10,
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 2, "max": 6 } } ] },
+        { "type": "minecraft:item", "name": "per_aspera_ad_astra:eisholz", "weight": 10,
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 2, "max": 8 } } ] },
+        { "type": "minecraft:item", "name": "minecraft:iron_ingot", "weight": 6,
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 1, "max": 3 } } ] },
+        { "type": "minecraft:item", "name": "minecraft:glass_bottle", "weight": 5,
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 1, "max": 3 } } ] }
+      ]
+    }
+  ]
+}

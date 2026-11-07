@@ -1,0 +1,11 @@
+{
+  "_comment": "Spacesuit chestplate + jetpack -> chestplate with jetpack (keeps its oxygen and other upgrades). Hold jump in the air to fly, uses oxygen.",
+  "type": "per_aspera_ad_astra:spacesuit_upgrade",
+  "category": "equipment",
+  "upgrade": "jetpack",
+  "ingredients": [
+    { "item": "per_aspera_ad_astra:spacesuit_chestplate" },
+    { "item": "per_aspera_ad_astra:jetpack" }
+  ],
+  "result": { "item": "per_aspera_ad_astra:spacesuit_chestplate", "count": 1 }
+}

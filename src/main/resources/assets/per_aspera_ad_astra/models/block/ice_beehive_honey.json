@@ -1,0 +1,10 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "per_aspera_ad_astra:block/ice_beehive_end",
+    "front": "per_aspera_ad_astra:block/ice_beehive_front_honey",
+    "particle": "per_aspera_ad_astra:block/ice_beehive_side",
+    "side": "per_aspera_ad_astra:block/ice_beehive_side",
+    "top": "per_aspera_ad_astra:block/ice_beehive_end"
+  }
+}

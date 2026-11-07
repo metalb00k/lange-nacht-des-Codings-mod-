@@ -1,0 +1,11 @@
+{
+  "_comment": "Ice beehive: like the vanilla beehive (6 planks + 3 honeycomb), but with Eisholzbrett.",
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["PPP", "HHH", "PPP"],
+  "key": {
+    "P": { "item": "per_aspera_ad_astra:eisholzbrett" },
+    "H": { "item": "minecraft:honeycomb" }
+  },
+  "result": { "item": "per_aspera_ad_astra:ice_beehive", "count": 1 }
+}

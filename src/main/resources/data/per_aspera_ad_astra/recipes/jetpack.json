@@ -1,0 +1,12 @@
+{
+  "_comment": "Jetpack: T of 4 iron blocks on top, 2 redstone blocks, 2 heaters in the bottom corners. Only use: spacesuit chestplate upgrade (spacesuit_chestplate_jetpack_upgrade.json).",
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": ["III", "RIR", "H H"],
+  "key": {
+    "I": { "item": "minecraft:iron_block" },
+    "R": { "item": "minecraft:redstone_block" },
+    "H": { "item": "per_aspera_ad_astra:heater" }
+  },
+  "result": { "item": "per_aspera_ad_astra:jetpack", "count": 1 }
+}

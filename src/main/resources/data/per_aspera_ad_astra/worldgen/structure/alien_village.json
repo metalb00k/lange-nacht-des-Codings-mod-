@@ -1,0 +1,13 @@
+{
+  "_comment": [
+    "Alien village: plaza + 4-6 dome huts with alien traders (entity/AlienVillagerEntity, trades are in that file).",
+    "Built in Java (worldgen/structure/AlienVillagePiece.java). beard_thin = the ground under the buildings gets flattened.",
+    "Where: tags/worldgen/biome/has_alien_village.json. How often: worldgen/structure_set/alien_village.json.",
+    "Find one: /locate structure per_aspera_ad_astra:alien_village   Spawn one: /place structure per_aspera_ad_astra:alien_village"
+  ],
+  "type": "per_aspera_ad_astra:alien_village",
+  "biomes": "#per_aspera_ad_astra:has_alien_village",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "beard_thin"
+}

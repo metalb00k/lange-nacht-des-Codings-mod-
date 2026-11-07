@@ -1,0 +1,12 @@
+{
+  "_comment": "spacing = average distance between villages in chunks (24 chunks = 384 blocks), separation = minimum distance. Lower numbers = more villages.",
+  "structures": [
+    { "structure": "per_aspera_ad_astra:alien_village", "weight": 1 }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 24,
+    "separation": 8,
+    "salt": 364920185
+  }
+}
